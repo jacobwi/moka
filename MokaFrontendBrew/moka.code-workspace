@@ -1,0 +1,36 @@
+{
+  "folders": [
+    {
+      "name": "🛠️ Configurations",
+      "path": "./config",
+    },
+    {
+      "name": "🆚 VS Code Configurations",
+      "path": "./.vscode",
+    },
+    {
+      "name": "🦖 Typescript Configurations",
+      "path": "./config/ts",
+    },
+    {
+      "name": "✨ Root",
+      "path": ".",
+    },
+    {
+      "name": "🌍 Core",
+      "path": "./packages/core",
+    },
+    {
+      "name": "❌ Errors",
+      "path": "./packages/errors",
+    },
+    {
+      "name": "⚽ Playground",
+      "path": "./apps/playground",
+    },
+  ],
+  "settings": {
+    "workbench.colorCustomizations": {}
+  },
+
+}

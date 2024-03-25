@@ -1,0 +1,7 @@
+# Root .prettierrc.yaml
+trailingComma: "es5" # Trailing commas mostly for objects and arrays
+semi: true # Semicolons at the end of statements
+singleQuote: true # Prefer single quotes over double
+printWidth: 100 # Line length limit (adjust as needed)
+tabWidth: 2 # Number of spaces per indentation level
+useTabs: false # Use spaces instead of tabs for indentation

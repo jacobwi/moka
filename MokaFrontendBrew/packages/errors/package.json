@@ -1,0 +1,12 @@
+{
+  "name": "@moka/errors",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc -p ../../config/ts/tsconfig.errors.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,10 @@
+{
+ "extends": "./config/ts/tsconfig.base.json",
+ "compilerOptions": {
+    "baseUrl": ".", // Add this if not already present
+    "paths": {
+      "@moka/core": ["packages/core/src"],
+      "@moka/errors": ["packages/errors/src"] 
+    }
+  }
+}

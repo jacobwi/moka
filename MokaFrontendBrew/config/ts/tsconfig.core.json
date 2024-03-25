@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "../../packages/core/dist",
+    "composite": true // Signals this is a reference-based project
+  },
+  "types": ["vitest/globals"],
+  "include": ["../../packages/core/src/**/*.ts"],
+  "exclude": [
+    "../../packages/core/node_modules",
+    "../../packages/core/dist",
+    "../../packages/core/src/__tests__"
+  ]
+}

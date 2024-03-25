@@ -1,0 +1,29 @@
+- text: Home
+  link: /
+- text: Development
+  collapsible: true
+  items:
+    - text: Getting Started
+      link: /development/getting-started
+    - text: Architecture Overview
+      link: /development/architecture-overview
+    - text: Environment Variables
+      link: /development/environment_variables
+    - text: Tech Stack
+      link: /development/tech-stack
+    - text: Project Lockpulse
+      collapsible: true
+      items:
+
+    - text: Testing
+      collapsible: true
+      items:
+        - text: Testing Stack
+          link: /development/testing/testing-stack
+        - text: Testing Strategy
+          link: /development/testing/testing-strategy
+- text: API
+  collapsible: true
+  items:
+    - text: API Examples
+      link: /api/api-examples

@@ -1,0 +1,107 @@
+# Specfs
+fileVc/
+
+# Node - Common
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Node - Environment specific
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# pnpm specific
+pnpm-debug.log*
+
+# Ignore pnpm store if inside the project
+.pnpm-store/
+
+# TypeScript - Build artifacts
+dist/
+build/
+out/
+*.tsbuildinfo
+
+# C# - Build results
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+*.user
+*.userosscache
+*.suo
+*.userprefs
+*.pidb
+*.cache
+*.vs/
+*.vswp
+*.swp
+*.sln.docstates
+*.dbmdl
+
+# C# - Tooling
+_ReSharper*/
+*.resharper
+*.DotSettings.user
+
+# Visual Studio Code - Workspace files
+.vscode/
+
+# JetBrains Rider
+.idea/
+
+# macOS - General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows - General
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
+*.lnk
+
+# Linux - General
+.Trash-*
+
+# ASP.NET Sensitive Files
+appsettings.json
+appsettings.*.json
+appsettings.Development.json
+appsettings.Production.json
+
+# User-specific files
+*.suo
+*.user
+*.userprefs
+*.sln.docstates
+*.sdf
+*.pdb
+*.opendb
+
+# User-specific files (MonoDevelop/Xamarin Studio)
+*.userprefs
+
+# Mono Auto Generated Files
+mono_crash.*
+
+# Windows Image Backup Files
+*.bak
+
+# Microsoft Office Temporary Files
+~$*
+
+# JetBrains Rider
+.idea/
+
+# Tye
+.tye/

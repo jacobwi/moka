@@ -1,0 +1,58 @@
+{
+  "name": "moka",
+  "version": "0.0.1-pre",
+  "description": "Open code for open lives. Learn, share, and build privacy essentials: security tools, data control, and more.",
+  "private": true,
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "format": "prettier --write .",
+    "lint": "eslint . --fix",
+    "typecheck": "tsc --noEmit",
+    "changeset": "npx changeset",
+    "changeset:version": "pnpx changeset version",
+    "changeset:publish": "pnpx changeset publish",
+    "test": "vitest --config D:/DEV/Enterprize/moka/config/vite/vitest.config.base.ts",
+    "test:all": "pnpm -r test",
+    "build:all": "pnpm -r build",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "workspaces": [
+    "packages/*",
+
+    "apps/*"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@8.15.5",
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@mswjs/data": "^0.16.1",
+    "@types/node": "^20.11.30",
+    "@types/react": "^18.2.69",
+    "@vitejs/plugin-react": "^4.2.1",
+    "@vitest/coverage-v8": "^1.4.0",
+    "@vitest/ui": "^1.4.0",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.4.5",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.34.1",
+    "eslint-plugin-react-refresh": "^0.4.6",
+    "msw": "^2.2.10",
+    "nanoid": "^5.0.6",
+    "prettier": "^3.2.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.3",
+    "typescript-eslint": "^7.3.1",
+    "vite": "^5.2.6",
+    "vitest": "^1.4.0"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  }
+}

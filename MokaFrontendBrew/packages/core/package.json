@@ -1,0 +1,21 @@
+{
+  "name": "@moka/core",
+  "version": "0.0.1-pre",
+  "description": "",
+  "main": "index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest watch --ui",
+    "build": "tsc -p ../../config/ts/tsconfig.core.json",
+    "lint": "eslint src --fix",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.8"
+  }
+}

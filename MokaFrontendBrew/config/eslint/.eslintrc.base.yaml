@@ -1,0 +1,25 @@
+extends:
+  - "eslint:recommended"
+  - "plugin:react/recommended"
+  - "plugin:react/jsx-runtime"
+  - "@electron-toolkit/eslint-config-ts/recommended"
+  - "@electron-toolkit/eslint-config-prettier"
+parserOptions:
+  ecmaVersion: latest
+  sourceType: "module"
+overrides:
+  - files: ["apps/lockpulse/web/**/*"]
+    env:
+      browser: true
+      es2020: true
+    plugins: ["react-refresh"]
+    rules:
+      "react-refresh/only-export-components":
+        - "warn"
+        - allowConstantExport: true
+settings:
+  react:
+    version: "detect"
+  typescript:
+    alwaysTryTypes: true
+    version: "latest"

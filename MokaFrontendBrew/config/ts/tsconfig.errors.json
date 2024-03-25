@@ -1,0 +1,16 @@
+//config/ts/tsconfig.errors.json
+{
+  "extends": "./tsconfig.base.json", // Inherit your base settings
+  "compilerOptions": {
+    "baseUrl": "../../packages/errors",
+    "rootDir": "../../packages/errors/src",
+    "outDir": "../../packages/errors/lib",
+
+    "composite": true, // Signals this is a reference-based project
+    "noUnusedLocals": true, // Disallow unused variables
+    "noUnusedParameters": true, // Disallow unused function parameters
+    "noImplicitReturns": true, // Enforce explicit return types
+    "noFallthroughCasesInSwitch": true // Prevent switch case fallthrough
+  },
+  "include": ["../../packages/errors/src/**/*.ts"]
+}

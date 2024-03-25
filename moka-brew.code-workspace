@@ -1,0 +1,57 @@
+{
+  "folders": [
+    {
+      "name": "🐥 Frontend - Root",
+      "path": "./MokaFrontendBrew"
+    },
+    {
+      "name": "🎒 Microservices -  Root",
+      "path": "./MokaMicroservices"
+    },
+    {
+      "name": "🔐 Microservice - Authentication",
+      "path": "./MokaMicroservices/Authentication.Service"
+    },
+    {
+      "name": "🔑 Microservice - Authorization",
+      "path": "./MokaMicroservices/Authorization.Service"
+    },
+    {
+      "name": "📚 Microservice - ByteBookmarks",
+      "path": "./MokaMicroservices/Bytemark.Backend"
+    }
+  ],
+  "extensions": {
+    "recommendations": [
+      "dbaeumer.vscode-eslint", // ESLint for linting JavaScript and TypeScript
+      "esbenp.prettier-vscode", // Prettier for code formatting
+      "ms-vscode.vscode-typescript-next", // TypeScript support
+      "ms-dotnettools.csharp", // C# support and debugging
+      "ms-azuretools.vscode-docker", // Docker support
+      "EditorConfig.EditorConfig", // EditorConfig support to maintain consistent coding styles
+      "eg2.vscode-npm-script" // NPM script runner
+    ]
+  },
+  "settings": {
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "always"
+    },
+    "files.exclude": {
+      "**/.git": true,
+      "**/.DS_Store": true,
+      "**/node_modules": true,
+      "**/bin": true,
+      "**/obj": true
+    },
+    "files.watcherExclude": {
+      "**/.git/objects/**": true,
+      "**/.git/subtree-cache/**": true,
+      "**/node_modules/*/**": true,
+      "**/bin/**": true,
+      "**/obj/**": true
+    },
+    "workbench.colorCustomizations": {}
+  }
+}
