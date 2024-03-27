@@ -1,24 +1,32 @@
 {
   "folders": [
     {
+      "name": "🐥 Root",
+      "path": "."
+    },
+    {
       "name": "🐥 Frontend - Root",
-      "path": "./MokaFrontendBrew"
+      "path": "MokaFrontendBrew"
     },
     {
       "name": "🎒 Microservices -  Root",
-      "path": "./MokaMicroservices"
+      "path": "MokaMicroservices"
     },
     {
       "name": "🔐 Microservice - Authentication",
-      "path": "./MokaMicroservices/Authentication.Service"
+      "path": "MokaMicroservices/Authentication.Service"
     },
     {
       "name": "🔑 Microservice - Authorization",
-      "path": "./MokaMicroservices/Authorization.Service"
+      "path": "MokaMicroservices/Authorization.Service"
+    },
+    {
+      "name": "📚 Shared Lib",
+      "path": "MokaMicroservices/SharedLibrary"
     },
     {
       "name": "📚 Microservice - ByteBookmarks",
-      "path": "./MokaMicroservices/Bytemark.Backend"
+      "path": "MokaMicroservices/Bytemark.Backend"
     }
   ],
   "extensions": {

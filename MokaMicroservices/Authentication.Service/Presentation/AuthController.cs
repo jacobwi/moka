@@ -9,39 +9,44 @@ namespace Authentication.Service.Presentation;
 
 [Route("api/auth")]
 [ApiController]
-public class AuthController : ControllerBase
+public class AuthController(IMediator mediator, IAuthService authService) : Controller
 {
-    private readonly AuthenticationService _authenticationService;
+    private readonly IAuthService _authService = authService; // For additional utilities if needed
 
-    public AuthController(AuthenticationService authenticationService)
-    {
-        _authenticationService = authenticationService;
-    }
-
+    // POST: api/Auth/login
     [HttpPost("login")]
-    public async Task<ActionResult<LoginResult>> Login([FromBody] LoginDto loginDto)
-    {
-        var result = await _authenticationService.LoginAsync(loginDto.Username, loginDto.Password);
-        if (!result.IsSuccessful) return BadRequest();
+    public async Task<ActionResult<AuthenticationResponse>> Login([FromBody] LoginDto userLogin)
 
-        return Ok(result);
+    {
+        try
+        {
+            var loginCommand = TinyMapper.Map<LoginUserCommand>(userLogin);
+
+            var response = await mediator.Send(loginCommand);
+            return Ok(response);
+        }
+        catch (Exception ex)
+        {
+            return Unauthorized(); // Or a more informative error response
+        }
     }
 
-    [HttpGet("ping")]
-    public IActionResult Ping()
+    // POST: api/Auth/register
+    [HttpPost("register")]
+    public async Task<ActionResult<AuthenticationResponse>> Register([FromBody] SignupDto newUser)
     {
-        return Ok("Pong");
+        try
+        {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+
+            var signupCommand = TinyMapper.Map<RegisterUserCommand>(newUser);
+
+            var response = await mediator.Send(signupCommand);
+            return Ok(response); // Consider returning CreatedAtAction
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message); // Or a more informative error response
+        }
     }
-}
-
-public class LoginDto
-{
-    public string Username { get; set; }
-    public string Password { get; set; }
-}
-
-public class LoginResult
-{
-    public bool IsSuccessful { get; set; }
-    public string Token { get; set; }
 }
