@@ -6,6 +6,7 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.Extensions.Configuration;
 using MokaServices.AuthenticationService.Application.Interfaces;
+using MokaServices.AuthenticationService.Domain.Exceptions;
 
 #endregion
 
@@ -19,16 +20,22 @@ public class TokenGenerator : ITokenGenerator
 
     public TokenGenerator(IConfiguration configuration)
     {
- 
+        // Extract JWT settings from the configuration
+        _secretKey = configuration["Jwt:Key"];
+        _issuer = configuration["Jwt:Issuer"];
+        _audience = configuration["Jwt:Audience"];
         
-        _secretKey = configuration["JwtSettings:SecretKey"];
-        _issuer = configuration["JwtSettings:Issuer"];
-        _audience = configuration["JwtSettings:Audience"];
-        
-        // Vlidate that the secret key, issuer and audience are not null
-        if (string.IsNullOrEmpty(_secretKey) || string.IsNullOrEmpty(_issuer) || string.IsNullOrEmpty(_audience))
+        // Validate that the secret key, issuer, and audience are not null or empty
+        ValidateJwtSettings(_secretKey, nameof(_secretKey));
+        ValidateJwtSettings(_issuer, nameof(_issuer));
+        ValidateJwtSettings(_audience, nameof(_audience));
+    }
+
+    private void ValidateJwtSettings(string? value, string paramName)
+    {
+        if (string.IsNullOrEmpty(value))
         {
-            throw new ArgumentNullException("JwtSettings", "JwtSettings are not configured correctly");
+            throw new DetailedArgumentNullException(paramName, null, $"{paramName} in JwtSettings is not configured correctly in appsettings.json.");
         }
     }
     public Task<string> GenerateTokenAsync(UserClaims userClaims)

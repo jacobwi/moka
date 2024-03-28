@@ -1,6 +1,8 @@
+
 using MokaServices.AuthenticationService.Application.DTOs;
 using MokaServices.AuthenticationService.Domain.Entities;
 using MokaServices.AuthenticationService.Domain.Enums;
+using MokaServices.AuthenticationService.Domain.Exceptions;
 using MokaServices.AuthenticationService.Domain.Interfaces;
 
 namespace MokaServices.AuthenticationService.Application.Services;
@@ -17,7 +19,7 @@ public class AuthenticationService(
         var user = await userRepository.GetAsync(request.UsernameOrEmail, request.UsernameOrEmail.Contains('@') ? BaseUserLookupType.Email : BaseUserLookupType.Username);
         if (user == null || !passwordHasher.VerifyPassword(user.PasswordHash, request.Password))
         {
-            throw new InvalidCredentialsException(); // Custom exception to indicate login failure
+            throw new AuthenticationException( "Invalid credentials", contextInfo: this.GetType().Name);
         }
         
         // Generate user claims
@@ -28,7 +30,7 @@ public class AuthenticationService(
             UserId = user.Id,
         };
 
-        var token = await tokenGenerator.GenerateTokenAsync(userClaims); // Assuming GenerateToken takes a BaseUser and returns a JWT token string
+        var token = await tokenGenerator.GenerateTokenAsync(userClaims); 
         
         // TODO: Map the user to a DTO if needed
         return new AuthResponseDto { Token = token, User = null };
@@ -39,7 +41,7 @@ public class AuthenticationService(
         var existingUser = await userRepository.GetAsync(userRegistration.Username, BaseUserLookupType.Username);
         if (existingUser != null)
         {
-            throw new UserAlreadyExistsException(userRegistration.Username); // Custom exception indicating the user already exists
+            throw new AuthenticationException(userRegistration.Username, contextInfo: this.GetType().Name);
         }
 
         var hashedPassword = passwordHasher.HashPassword(userRegistration.Password);
@@ -77,14 +79,3 @@ public class AuthenticationService(
     }
 }
 
-public class UserAlreadyExistsException : Exception
-{
-    public UserAlreadyExistsException(string userRegistrationUsername)
-    {
-       
-    }
-}
-
-public class InvalidCredentialsException : Exception
-{
-}
