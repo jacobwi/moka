@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
+using MokaServices.Shared.Models;
 
-namespace SharedLibrary.Attributes;
+namespace MokaServices.Shared.Attributes;
 
 [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
 public class NanoIdAttribute : ValidationAttribute
@@ -14,6 +15,9 @@ public class NanoIdAttribute : ValidationAttribute
 
     protected override ValidationResult IsValid(object value, ValidationContext validationContext)
     {
+        if (validationContext == null) return new ValidationResult("Unknown validation context");
+
+        if (validationContext.MemberName == null) return new ValidationResult("Unknown member name");
         var property = validationContext.ObjectType.GetProperty(validationContext.MemberName);
         if (property == null) return new ValidationResult("Unknown property");
 

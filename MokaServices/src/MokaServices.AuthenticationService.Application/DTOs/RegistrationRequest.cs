@@ -1,8 +1,8 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace SharedLibrary.DTOs;
+namespace MokaServices.AuthenticationService.Application.DTOs;
 
-public class RegistrationDto
+public class RegistrationRequest
 {
     [Required]
     [StringLength(50, MinimumLength = 3)]

@@ -1,6 +1,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
+namespace MokaServices.Shared.Models;
 public static class NanoId
 {
     private const string DefaultAlphabet = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";

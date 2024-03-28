@@ -1,8 +1,8 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace SharedLibrary.DTOs;
+namespace MokaServices.AuthenticationService.Application.DTOs;
 
-public class LoginDto
+public class LoginRequest
 {
     [Required(ErrorMessage = "Username or email is required.")]
     public string UsernameOrEmail { get; set; }
