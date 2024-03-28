@@ -1,0 +1,7 @@
+auth:
+  - code: 001
+    message: "Invalid credentials provided."
+    httpStatus: 401
+  - code: 002
+    message: "Account is locked."
+    httpStatus: 403

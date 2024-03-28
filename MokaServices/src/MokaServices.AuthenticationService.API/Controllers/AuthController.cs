@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
+using LoginRequest = MokaServices.AuthenticationService.Application.DTOs.LoginRequest;
 
 namespace MokaServices.AuthenticationService.API.Controllers;
 
@@ -9,7 +10,7 @@ namespace MokaServices.AuthenticationService.API.Controllers;
 public class AuthController(IAuthenticationService authenticationService) : ControllerBase
 {
     [HttpPost("login")]
-    public async Task<IActionResult> Login([FromBody] Microsoft.AspNetCore.Identity.Data.LoginRequest request)
+    public async Task<IActionResult> Login([FromBody] LoginRequest request)
     {
         // Call the authentication service
         var result = await authenticationService.LoginAsync(request);
@@ -17,7 +18,6 @@ public class AuthController(IAuthenticationService authenticationService) : Cont
         {
             return Unauthorized();
         }
-
         return Ok(result);
     }
 }

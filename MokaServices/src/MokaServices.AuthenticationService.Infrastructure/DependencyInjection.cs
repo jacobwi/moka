@@ -2,6 +2,7 @@
 
 using Microsoft.Extensions.DependencyInjection;
 using MokaServices.AuthenticationService.Application.Interfaces;
+using MokaServices.AuthenticationService.Domain.Interfaces;
 using MokaServices.AuthenticationService.Infrastructure.Repositories;
 using MokaServices.AuthenticationService.Infrastructure.Services;
 
@@ -15,6 +16,10 @@ public static class DependencyInjection
     {
         // Register infrastructure services
         services.AddScoped<ITokenGenerator, TokenGenerator>();
+        services.AddSingleton<IPasswordHasher, Argon2PasswordHasher>();
+
+        
+        // Register infrastructure repositories
         services.AddScoped<IUserRepository, UserRepository>();
 
 

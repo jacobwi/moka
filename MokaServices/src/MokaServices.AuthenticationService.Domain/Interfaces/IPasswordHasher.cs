@@ -1,5 +1,7 @@
 namespace MokaServices.AuthenticationService.Domain.Interfaces;
 
-public class IPasswordHasher
+public interface  IPasswordHasher
 {
+    string HashPassword(string password);
+    bool VerifyPassword(string hashedPassword, string providedPassword);
 }

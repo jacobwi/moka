@@ -1,30 +1,90 @@
 using MokaServices.AuthenticationService.Application.DTOs;
+using MokaServices.AuthenticationService.Domain.Entities;
+using MokaServices.AuthenticationService.Domain.Enums;
+using MokaServices.AuthenticationService.Domain.Interfaces;
 
 namespace MokaServices.AuthenticationService.Application.Services;
 
-public class AuthenticationService : IAuthenticationService
+public class AuthenticationService(
+    IUserRepository userRepository,
+    ITokenGenerator tokenGenerator,
+    IPasswordHasher passwordHasher)
+    : IAuthenticationService
 {
-    private readonly ITokenGenerator _tokenGenerator; // Integrated token functionality
-    private readonly IUserRepository _userRepository;
-
-    public AuthenticationService(IUserRepository userRepository, ITokenGenerator tokenGenerator)
+    public async Task<AuthResponseDto> LoginAsync(LoginRequest request)
     {
-        _userRepository = userRepository;
-        _tokenGenerator = tokenGenerator;
+        
+        var user = await userRepository.GetAsync(request.UsernameOrEmail, request.UsernameOrEmail.Contains('@') ? BaseUserLookupType.Email : BaseUserLookupType.Username);
+        if (user == null || !passwordHasher.VerifyPassword(user.PasswordHash, request.Password))
+        {
+            throw new InvalidCredentialsException(); // Custom exception to indicate login failure
+        }
+        
+        // Generate user claims
+        var userClaims = new UserClaims
+        {
+            Username = user.Username,
+            Email = user.Email,
+            UserId = user.Id,
+        };
+
+        var token = await tokenGenerator.GenerateTokenAsync(userClaims); // Assuming GenerateToken takes a BaseUser and returns a JWT token string
+        
+        // TODO: Map the user to a DTO if needed
+        return new AuthResponseDto { Token = token, User = null };
     }
 
-    public Task<AuthResponseDto> LoginAsync(LoginRequest request)
+    public async Task<AuthResponseDto> RegisterUserAsync(RegistrationRequest userRegistration)
     {
-        throw new NotImplementedException();
+        var existingUser = await userRepository.GetAsync(userRegistration.Username, BaseUserLookupType.Username);
+        if (existingUser != null)
+        {
+            throw new UserAlreadyExistsException(userRegistration.Username); // Custom exception indicating the user already exists
+        }
+
+        var hashedPassword = passwordHasher.HashPassword(userRegistration.Password);
+        var newUser = new BaseUser
+        {
+            Username = userRegistration.Username,
+            PasswordHash = hashedPassword,
+            Email = userRegistration.Email,
+            IsActive = true
+        };
+
+        await userRepository.AddAsync(newUser);
+
+        
+        var userClaims =  new UserClaims
+        {
+            Username = newUser.Username,
+            Email = newUser.Email,
+            UserId = newUser.Id,
+
+        };
+        
+        var token = await tokenGenerator.GenerateTokenAsync(userClaims);
+        
+        // TODO: Map the user to a DTO if needed
+        
+        return new AuthResponseDto { Token = token, User = null };
     }
 
     public Task<string> RefreshTokenAsync(string token, string refreshToken)
     {
+        // Implement the logic to verify the existing token, validate the refresh token,
+        // and then generate a new JWT token if the refresh token is valid.
         throw new NotImplementedException();
     }
+}
 
-    public Task<AuthResponseDto> RegisterUserAsync(RegistrationRequest userRegistration)
+public class UserAlreadyExistsException : Exception
+{
+    public UserAlreadyExistsException(string userRegistrationUsername)
     {
-        throw new NotImplementedException();
+       
     }
+}
+
+public class InvalidCredentialsException : Exception
+{
 }
