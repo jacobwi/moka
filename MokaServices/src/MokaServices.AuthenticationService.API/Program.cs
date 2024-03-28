@@ -1,4 +1,4 @@
-#region Usings
+#region
 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
@@ -47,11 +47,16 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(options =>
+    {
+        options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+        options.InjectStylesheet("/swagger-ui/theme-flattop.css");
+    });
 }
 
 app.UseHttpsRedirection();
 app.MapControllers();
+app.UseStaticFiles();
 app.Run();
 
 
@@ -92,4 +97,5 @@ static void ConfigureSwagger(IServiceCollection services)
         });
     });
 }
+
 #endregion

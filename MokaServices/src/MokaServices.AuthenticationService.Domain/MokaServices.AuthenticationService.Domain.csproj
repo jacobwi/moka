@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <ItemGroup>
-      <ProjectReference Include="..\MokaServices.Shared\MokaServices.Shared.csproj" />
+        <ProjectReference Include="..\MokaServices.Shared\MokaServices.Shared.csproj"/>
     </ItemGroup>
 
     <PropertyGroup>

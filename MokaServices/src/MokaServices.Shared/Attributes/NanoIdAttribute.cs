@@ -1,9 +1,13 @@
+#region
+
 using System.ComponentModel.DataAnnotations;
 using MokaServices.Shared.Models;
 
+#endregion
+
 namespace MokaServices.Shared.Attributes;
 
-[AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
+[AttributeUsage(AttributeTargets.Property)]
 public class NanoIdAttribute : ValidationAttribute
 {
     private readonly int _size;

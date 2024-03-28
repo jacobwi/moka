@@ -1,5 +1,9 @@
+#region
+
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
+
+#endregion
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,4 +27,3 @@ app.UseHttpsRedirection();
 app.UseOcelot().Wait();
 
 app.Run();
-

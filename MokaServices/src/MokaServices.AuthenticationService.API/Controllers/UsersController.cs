@@ -1,11 +1,13 @@
-using Microsoft.AspNetCore.Http;
+#region
+
 using Microsoft.AspNetCore.Mvc;
 
-namespace MokaServices.AuthenticationService.API.Controllers
+#endregion
+
+namespace MokaServices.AuthenticationService.API.Controllers;
+
+[Route("api/[controller]")]
+[ApiController]
+public class UsersController : ControllerBase
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class UsersController : ControllerBase
-    {
-    }
 }

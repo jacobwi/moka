@@ -1,7 +1,9 @@
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity.Data;
+#region
+
 using Microsoft.AspNetCore.Mvc;
 using LoginRequest = MokaServices.AuthenticationService.Application.DTOs.LoginRequest;
+
+#endregion
 
 namespace MokaServices.AuthenticationService.API.Controllers;
 
@@ -14,10 +16,7 @@ public class AuthController(IAuthenticationService authenticationService) : Cont
     {
         // Call the authentication service
         var result = await authenticationService.LoginAsync(request);
-        if (result == null)
-        {
-            return Unauthorized();
-        }
+        if (result == null) return Unauthorized();
         return Ok(result);
     }
 }

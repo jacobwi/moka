@@ -16,7 +16,7 @@ public class UserRepository(AuthenticationDbContext context) : IUserRepository
     {
         await context.Users.AddAsync(user);
         await context.SaveChangesAsync();
-        
+
         // TODO: Return the user with the updated ID or just return the id?
         return user;
     }

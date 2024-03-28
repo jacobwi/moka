@@ -1,4 +1,8 @@
+#region
+
 using MokaServices.AuthenticationService.Application.DTOs;
+
+#endregion
 
 namespace MokaServices.AuthenticationService.Application.Interfaces;
 
@@ -8,6 +12,7 @@ public interface IAuthenticationService
 
     // Method to register a new user
     Task<AuthResponseDto> RegisterUserAsync(RegistrationRequest userRegistration);
+
     // Method to refresh an expired JWT token
     Task<string> RefreshTokenAsync(string token, string refreshToken);
 }

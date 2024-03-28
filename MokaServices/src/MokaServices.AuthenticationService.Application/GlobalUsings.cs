@@ -5,5 +5,4 @@
 global using MokaServices.AuthenticationService.Application.Interfaces;
 global using Microsoft.Extensions.DependencyInjection;
 
-
 #endregion

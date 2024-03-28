@@ -1,4 +1,8 @@
+#region
+
 using System.ComponentModel.DataAnnotations;
+
+#endregion
 
 namespace MokaServices.AuthenticationService.Application.DTOs;
 
@@ -8,12 +12,9 @@ public class RegistrationRequest
     [StringLength(50, MinimumLength = 3)]
     public string Username { get; set; }
 
-    [Required]
-    [EmailAddress]
-    public string Email { get; set; }
+    [Required] [EmailAddress] public string Email { get; set; }
 
     [Required]
-
     [StringLength(100, MinimumLength = 6)]
     public string Password { get; set; }
 
@@ -30,13 +31,10 @@ public class RegistrationRequest
     public string CaptchaToken { get; set; }
 
     // Optional: Fields for additional user information
-    [StringLength(100)]
-    public string FirstName { get; set; }
+    [StringLength(100)] public string FirstName { get; set; }
 
-    [StringLength(100)]
-    public string LastName { get; set; }
+    [StringLength(100)] public string LastName { get; set; }
 
     // Optional: To handle user's consent for receiving newsletters, marketing emails, etc.
     public bool? SubscribeToNewsletter { get; set; }
-
 }

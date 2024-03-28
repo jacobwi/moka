@@ -1,14 +1,18 @@
+#region
+
 using Microsoft.Extensions.Caching.Memory;
 using MokaServices.Shared.Models;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 
+#endregion
+
 namespace MokaServices.Shared.Services;
 
 public class ErrorCodeService
 {
-    private readonly IMemoryCache _cache;
     private const string CacheKey = "ErrorCodes";
+    private readonly IMemoryCache _cache;
 
     // Constructor with IMemoryCache dependency injection
     public ErrorCodeService(IMemoryCache cache)
@@ -34,16 +38,10 @@ public class ErrorCodeService
             var fileErrorCodes = deserializer.Deserialize<Dictionary<string, List<ErrorCode>>>(content);
 
             foreach (var entry in fileErrorCodes)
-            {
                 if (!errorCodes.TryGetValue(entry.Key, out var value))
-                {
                     errorCodes.Add(entry.Key, entry.Value);
-                }
                 else
-                {
                     value.AddRange(entry.Value);
-                }
-            }
         }
 
         // Store the loaded error codes in the cache
@@ -54,9 +52,7 @@ public class ErrorCodeService
     {
         if (_cache.TryGetValue(CacheKey, out Dictionary<string, List<ErrorCode>> errorCodes) &&
             errorCodes.TryGetValue(category, out var codes))
-        {
             return codes.FirstOrDefault(c => c.Code == code);
-        }
 
         return null;
     }

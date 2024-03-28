@@ -1,5 +1,9 @@
+#region
+
 using MokaServices.AuthenticationService.Domain.Entities;
 using MokaServices.AuthenticationService.Domain.Enums;
+
+#endregion
 
 namespace MokaServices.AuthenticationService.Application.Interfaces;
 

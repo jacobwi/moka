@@ -1,4 +1,3 @@
-
 namespace MokaServices.AuthenticationService.Domain.Exceptions;
 
 public class DetailedArgumentNullException(string parameterName, object? value = null, string? detail = null)
@@ -10,12 +9,12 @@ public class DetailedArgumentNullException(string parameterName, object? value =
 
     private static string FormatMessage(string parameterName, object? value, string? detail)
     {
-        return  $"""
-                
+        return $"""
+
                 Parameter Name: {parameterName}
-                
+
                 Provided Value: {value ?? "null"}
-                
+
                 Detail: {detail}
                 """;
     }

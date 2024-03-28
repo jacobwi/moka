@@ -1,7 +1,12 @@
+#region
+
 using System.Security.Cryptography;
 using System.Text;
 
+#endregion
+
 namespace MokaServices.Shared.Models;
+
 public static class NanoId
 {
     private const string DefaultAlphabet = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -10,14 +15,14 @@ public static class NanoId
     public static string Generate(string alphabet = DefaultAlphabet, int size = DefaultSize)
     {
         var stringBuilder = new StringBuilder(size);
-        byte[] randomBytes = new byte[size];
+        var randomBytes = new byte[size];
         using var rng = RandomNumberGenerator.Create();
 
         rng.GetBytes(randomBytes);
 
-        for (int i = 0; i < size; i++)
+        for (var i = 0; i < size; i++)
         {
-            int pos = randomBytes[i] % alphabet.Length;
+            var pos = randomBytes[i] % alphabet.Length;
             stringBuilder.Append(alphabet[pos]);
         }
 

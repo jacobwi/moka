@@ -18,7 +18,7 @@ public static class DependencyInjection
         services.AddScoped<ITokenGenerator, TokenGenerator>();
         services.AddSingleton<IPasswordHasher, Argon2PasswordHasher>();
 
-        
+
         // Register infrastructure repositories
         services.AddScoped<IUserRepository, UserRepository>();
 

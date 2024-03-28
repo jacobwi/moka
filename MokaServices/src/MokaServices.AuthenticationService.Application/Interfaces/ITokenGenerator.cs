@@ -4,7 +4,6 @@ public interface ITokenGenerator
 {
     // Method to generate a new token based on specific user claims or attributes
     Task<string> GenerateTokenAsync(UserClaims userClaims);
-
 }
 
 public class UserClaims
@@ -17,5 +16,4 @@ public class UserClaims
     // Additional claims can include more specific user attributes as needed
     public string PreferredLanguage { get; set; }
     public string TimeZone { get; set; }
-
 }
