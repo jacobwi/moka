@@ -6,6 +6,15 @@ MokaSuite is a comprehensive ecosystem comprising `MokaServices` for the backend
 
 MokaServices is the backbone of our suite, built on a microservices architecture that emphasizes scalability, resilience, and modular growth. Each microservice is designed to perform its function optimally while seamlessly integrating with the broader ecosystem.
 
+## MokaServices - Microservices Architecture
+
+Below is the architectural diagram for MokaServices, outlining the interaction between different services, data flow, and other key architectural elements:
+
+![MokaServices Architecture Diagram](docs/Services/Design/ArchitectureDesign.svg)
+
+This diagram provides a visual representation of how each microservice within MokaServices is designed to work in conjunction with others, ensuring scalability, resilience, and modularity of the entire ecosystem.
+
+
 ### Tech Stack & Architecture:
 
 - **.NET 8**: Our microservices are crafted with the latest .NET framework, ensuring performance and robustness.
@@ -24,6 +33,7 @@ MokaServices is the backbone of our suite, built on a microservices architecture
 - **Password Manager Service**: Secures user passwords, implementing encryption standards for data safety.
 
 ...with the flexibility to introduce additional services as the suite evolves.
+
 
 ### 📚 Documentation:
 
