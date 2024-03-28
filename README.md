@@ -10,7 +10,7 @@ MokaServices is the backbone of our suite, built on a microservices architecture
 
 Below is the architectural diagram for MokaServices, outlining the interaction between different services, data flow, and other key architectural elements:
 
-![MokaServices Architecture Diagram](docs/Services/Design/ArchitectureDesign.svg)
+![MokaServices Architecture Diagram](docs/Services/Design/ArchitectureDesign.png)
 
 This diagram provides a visual representation of how each microservice within MokaServices is designed to work in conjunction with others, ensuring scalability, resilience, and modularity of the entire ecosystem.
 
