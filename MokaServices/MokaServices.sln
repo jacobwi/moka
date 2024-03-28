@@ -1,0 +1,77 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AuthenticationService", "AuthenticationService", "{C302497A-1547-4299-8D59-278C4D24A5EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MokaServices.AuthenticationService.Domain", "src\MokaServices.AuthenticationService.Domain\MokaServices.AuthenticationService.Domain.csproj", "{F68E4F92-29C8-4F50-853B-A78BF15E7FF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MokaServices.AuthenticationService.Application", "src\MokaServices.AuthenticationService.Application\MokaServices.AuthenticationService.Application.csproj", "{524A74A4-B26D-4243-A2F8-0DBFD46C9A58}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MokaServices.AuthenticationService.Infrastructure", "src\MokaServices.AuthenticationService.Infrastructure\MokaServices.AuthenticationService.Infrastructure.csproj", "{E3D46A4E-3311-4779-9A9D-009B340CE0ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MokaServices.AuthenticationService.API", "src\MokaServices.AuthenticationService.API\MokaServices.AuthenticationService.API.csproj", "{54BA7C57-3E55-45BD-A63B-368E742FE3C0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AuthenticationService.Tests", "AuthenticationService.Tests", "{64F07923-6A9F-405E-BF74-69F02291EBB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationService.Domain.UnitTests", "tests\AuthenticationService.Domain.UnitTests\AuthenticationService.Domain.UnitTests.csproj", "{42BB4BDD-AAFC-4415-91C0-C66577347B2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationService.Application.UnitTests", "tests\AuthenticationService.Application.UnitTests\AuthenticationService.Application.UnitTests.csproj", "{9CD0DD81-C7B9-42BF-AE5C-D02615DF7995}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationService.API.IntegrationTests", "tests\AuthenticationService.API.IntegrationTests\AuthenticationService.API.IntegrationTests.csproj", "{12AF2F5C-79EE-4096-BEF8-C83D29A2C712}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MokaServices.Shared", "src\MokaServices.Shared\MokaServices.Shared.csproj", "{0E214DFE-9507-48A4-8766-1217701ADBF7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MokaServices.ApiGateway", "src\MokaServices.ApiGateway\MokaServices.ApiGateway.csproj", "{228BF31A-0DA3-47C9-86C9-1640CF540BF8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F68E4F92-29C8-4F50-853B-A78BF15E7FF1} = {C302497A-1547-4299-8D59-278C4D24A5EC}
+		{524A74A4-B26D-4243-A2F8-0DBFD46C9A58} = {C302497A-1547-4299-8D59-278C4D24A5EC}
+		{E3D46A4E-3311-4779-9A9D-009B340CE0ED} = {C302497A-1547-4299-8D59-278C4D24A5EC}
+		{54BA7C57-3E55-45BD-A63B-368E742FE3C0} = {C302497A-1547-4299-8D59-278C4D24A5EC}
+		{42BB4BDD-AAFC-4415-91C0-C66577347B2E} = {64F07923-6A9F-405E-BF74-69F02291EBB8}
+		{9CD0DD81-C7B9-42BF-AE5C-D02615DF7995} = {64F07923-6A9F-405E-BF74-69F02291EBB8}
+		{12AF2F5C-79EE-4096-BEF8-C83D29A2C712} = {64F07923-6A9F-405E-BF74-69F02291EBB8}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F68E4F92-29C8-4F50-853B-A78BF15E7FF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F68E4F92-29C8-4F50-853B-A78BF15E7FF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F68E4F92-29C8-4F50-853B-A78BF15E7FF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F68E4F92-29C8-4F50-853B-A78BF15E7FF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{524A74A4-B26D-4243-A2F8-0DBFD46C9A58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{524A74A4-B26D-4243-A2F8-0DBFD46C9A58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{524A74A4-B26D-4243-A2F8-0DBFD46C9A58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{524A74A4-B26D-4243-A2F8-0DBFD46C9A58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3D46A4E-3311-4779-9A9D-009B340CE0ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3D46A4E-3311-4779-9A9D-009B340CE0ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3D46A4E-3311-4779-9A9D-009B340CE0ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3D46A4E-3311-4779-9A9D-009B340CE0ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54BA7C57-3E55-45BD-A63B-368E742FE3C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54BA7C57-3E55-45BD-A63B-368E742FE3C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54BA7C57-3E55-45BD-A63B-368E742FE3C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54BA7C57-3E55-45BD-A63B-368E742FE3C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42BB4BDD-AAFC-4415-91C0-C66577347B2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42BB4BDD-AAFC-4415-91C0-C66577347B2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42BB4BDD-AAFC-4415-91C0-C66577347B2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42BB4BDD-AAFC-4415-91C0-C66577347B2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CD0DD81-C7B9-42BF-AE5C-D02615DF7995}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CD0DD81-C7B9-42BF-AE5C-D02615DF7995}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CD0DD81-C7B9-42BF-AE5C-D02615DF7995}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CD0DD81-C7B9-42BF-AE5C-D02615DF7995}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12AF2F5C-79EE-4096-BEF8-C83D29A2C712}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12AF2F5C-79EE-4096-BEF8-C83D29A2C712}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12AF2F5C-79EE-4096-BEF8-C83D29A2C712}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12AF2F5C-79EE-4096-BEF8-C83D29A2C712}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E214DFE-9507-48A4-8766-1217701ADBF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E214DFE-9507-48A4-8766-1217701ADBF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E214DFE-9507-48A4-8766-1217701ADBF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E214DFE-9507-48A4-8766-1217701ADBF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{228BF31A-0DA3-47C9-86C9-1640CF540BF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{228BF31A-0DA3-47C9-86C9-1640CF540BF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{228BF31A-0DA3-47C9-86C9-1640CF540BF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{228BF31A-0DA3-47C9-86C9-1640CF540BF8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

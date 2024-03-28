@@ -1,0 +1,76 @@
+vars: {
+  icons: {
+    db: https://icons.terrastruct.com/essentials%2F117-database.svg
+    user: https://icons.terrastruct.com/essentials%2F365-user.svg
+    service: https://icons.terrastruct.com/tech%2F022-server.svg
+    bus: https://icons.terrastruct.com/azure%2FIntegration%20Service%20Color%2FAzure%20Service%20Bus.svg
+    index: https://icons.terrastruct.com/infra%2F012-data.svg
+  }
+}
+
+direction: right
+
+apps -- gateway: "HTTP Requests"
+
+gateway -> services: "Routes to specific services"
+services -> storage
+services -> mq
+mq -> services
+apps: "Client Applications" {
+  grid-columns: 1
+
+  BookmarkApp: "Website Bookmarking App" {
+    icon: ${icons.user}
+  }
+  PasswordApp: "Password Manager App" {
+    icon: ${icons.user}
+  }
+  FutureApps: "Future Apps" {
+    icon: ${icons.user}
+  }
+}
+
+gateway: "API Gateway" {
+  grid-rows: 1
+  Routing.icon: https://icons.terrastruct.com/tech%2Frouter.svg
+}
+
+services: "Microservices" {
+  grid-rows: 3
+
+  BookmarkService: "Bookmark Microservice" {
+    icon: ${icons.service}
+  }
+  PasswordService: "Password Microservice" {
+    icon: ${icons.service}
+  }
+  AuthService: "Authentication Service" {
+    icon: ${icons.service}
+  }
+}
+
+storage: "Storage & Indexing" {
+  grid-rows: 3
+
+  SearchIndex: "Search Index" {
+    icon: ${icons.index}
+  }
+
+  DB: "Database" {
+    icon: ${icons.db}
+  }
+}
+
+mq: "Message Queuing" {
+  grid-rows: 1
+
+  AzureMQ: "Azure Message Queue / RabbitMQ" {
+    icon: ${icons.bus}
+  }
+
+  # Demonstrating detailed interactions
+  interactions: {
+    Services -> MQ: "Publish Auth Events"
+    MQ -> Services: "Consume Tasks/Events"
+  }
+}

@@ -6,27 +6,19 @@
     },
     {
       "name": "🐥 Frontend - Root",
-      "path": "MokaFrontendBrew"
+      "path": "./MokaFrontendBrew"
     },
     {
       "name": "🎒 Microservices -  Root",
-      "path": "MokaMicroservices"
+      "path": "./MokaServices"
     },
     {
-      "name": "🔐 Microservice - Authentication",
-      "path": "MokaMicroservices/Authentication.Service"
+      "name": "🦠 Microservices - Development",
+      "path": "./MokaServices/src/"
     },
     {
-      "name": "🔑 Microservice - Authorization",
-      "path": "MokaMicroservices/Authorization.Service"
-    },
-    {
-      "name": "📚 Shared Lib",
-      "path": "MokaMicroservices/SharedLibrary"
-    },
-    {
-      "name": "📚 Microservice - ByteBookmarks",
-      "path": "MokaMicroservices/Bytemark.Backend"
+      "name": "🧪 Microservices - Testing",
+      "path": "./MokaServices/tests"
     }
   ],
   "extensions": {
@@ -34,10 +26,9 @@
       "dbaeumer.vscode-eslint", // ESLint for linting JavaScript and TypeScript
       "esbenp.prettier-vscode", // Prettier for code formatting
       "ms-vscode.vscode-typescript-next", // TypeScript support
-      "ms-dotnettools.csharp", // C# support and debugging
+
       "ms-azuretools.vscode-docker", // Docker support
-      "EditorConfig.EditorConfig", // EditorConfig support to maintain consistent coding styles
-      "eg2.vscode-npm-script" // NPM script runner
+      "EditorConfig.EditorConfig" // EditorConfig support to maintain consistent coding styles
     ]
   },
   "settings": {

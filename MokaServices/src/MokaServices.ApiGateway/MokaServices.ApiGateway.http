@@ -1,0 +1,6 @@
+@MokaServices.ApiGateway_HostAddress = http://localhost:5242
+
+GET {{MokaServices.ApiGateway_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

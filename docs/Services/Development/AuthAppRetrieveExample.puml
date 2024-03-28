@@ -1,0 +1,26 @@
+@startuml
+title User Interaction: Login and Bookmark Retrieval
+
+participant User
+participant AuthenticationService as Auth
+participant "API Gateway (Ocelot)" as Gateway  
+participant BookmarkingService as Bookmarking
+
+' === Login Sequence ===
+User -> Gateway : Login Request (username, password)
+Gateway -> Auth : Forward Login Request
+Auth -> Auth : Validate Credentials
+Auth -> Gateway : BaseUserDto and Auth Token
+Gateway -> User : BaseUserDto and Auth Token
+
+' === Bookmarks Sequence === 
+User -> Gateway : Request Initial Bookmarks (with Auth Token)
+Gateway -> Bookmarking : Forward Bookmark Request (with Auth Token)
+Bookmarking -> Auth : Validate Auth Token 
+Auth -> Bookmarking : Validation success (optional)
+Bookmarking -> Bookmarking : Retrieve User Bookmarks
+Bookmarking -> Gateway : ExtendedUserDto (Bookmarks)
+Gateway -> User : ExtendedUserDto (Bookmarks)
+User -> User : Display Bookmarks
+
+@enduml
