@@ -5,7 +5,7 @@ using MokaServices.AuthenticationService.Domain.Enums;
 
 #endregion
 
-namespace MokaServices.AuthenticationService.Application.Interfaces;
+namespace MokaServices.AuthenticationService.Domain.Interfaces;
 
 public interface IUserRepository
 {
@@ -13,4 +13,9 @@ public interface IUserRepository
     Task<BaseUser?> GetAsync(string lookupValue, BaseUserLookupType lookupType);
 
     Task<bool> UserExistsAsync(string lookupValue, BaseUserLookupType lookupType);
+    Task<IEnumerable<BaseRole>> GetUserRolesAsync(string userId); // Method to get user roles
+    Task<IEnumerable<BaseUser>> GetAllAsync();
+    Task<bool> RemoveAsync(string userId);
+
+    Task<bool> UpdateAsync(BaseUser? user);
 }

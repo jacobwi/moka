@@ -1,9 +1,9 @@
 #region
 
 using Microsoft.EntityFrameworkCore;
-using MokaServices.AuthenticationService.Application.Interfaces;
 using MokaServices.AuthenticationService.Domain.Entities;
 using MokaServices.AuthenticationService.Domain.Enums;
+using MokaServices.AuthenticationService.Domain.Interfaces;
 using MokaServices.AuthenticationService.Infrastructure.Data;
 
 #endregion
@@ -41,5 +41,41 @@ public class UserRepository(AuthenticationDbContext context) : IUserRepository
             BaseUserLookupType.Id => context.Users.AnyAsync(u => u.Id == lookupValue),
             _ => Task.FromResult(false)
         };
+    }
+
+    public async Task<IEnumerable<BaseRole>> GetUserRolesAsync(string userId)
+    {
+        var user = await context.Users.Include(u => u.UserRoles).FirstOrDefaultAsync(u => u.Id == userId);
+
+        return user?.UserRoles ?? new List<BaseRole>();
+    }
+
+    public async Task<IEnumerable<BaseUser>> GetAllAsync()
+    {
+        return await context.Users.ToListAsync();
+    }
+
+    public async Task<bool> RemoveAsync(string userId)
+    {
+        var user = await context.Users.FirstOrDefaultAsync(u => u.Id == userId);
+
+        if (user is null) return false;
+
+        context.Users.Remove(user);
+        await context.SaveChangesAsync();
+
+        return true;
+    }
+
+    public async Task<bool> UpdateAsync(BaseUser? user)
+    {
+        var existingUser = await context.Users.FirstOrDefaultAsync(u => u.Id == user.Id);
+
+        if (existingUser is null) return false;
+
+        context.Entry(existingUser).CurrentValues.SetValues(user);
+        await context.SaveChangesAsync();
+
+        return true;
     }
 }

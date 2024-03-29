@@ -1,8 +1,6 @@
 #region
 
 using System.ComponentModel.DataAnnotations;
-using MokaServices.Shared.Attributes;
-using MokaServices.Shared.Models;
 
 #endregion
 
@@ -10,14 +8,6 @@ namespace MokaServices.AuthenticationService.Domain.Entities;
 
 public class BaseUser : VersionedBaseEntity
 {
-    public BaseUser()
-    {
-        // Only generate a new ID if one hasn't been set
-        Id = Id ?? NanoId.Generate();
-    }
-
-    [Key] [NanoId] public string Id { get; set; }
-
     public string Username { get; set; }
 
     [Required] [EmailAddress] public string Email { get; set; }
