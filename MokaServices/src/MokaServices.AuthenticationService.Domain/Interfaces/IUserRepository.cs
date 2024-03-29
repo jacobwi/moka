@@ -11,4 +11,6 @@ public interface IUserRepository
 {
     Task<BaseUser> AddAsync(BaseUser user);
     Task<BaseUser?> GetAsync(string lookupValue, BaseUserLookupType lookupType);
+
+    Task<bool> UserExistsAsync(string lookupValue, BaseUserLookupType lookupType);
 }

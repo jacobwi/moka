@@ -32,6 +32,13 @@ builder.Services.AddDbContext<AuthenticationDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("AuthenticationDatabase"))
 );
 
+
+#region Route Options Configuration
+
+ConfigureRouteOptions(builder.Services);
+
+#endregion
+
 #region Swagger Configuration
 
 // Configure Swagger for API documentation
@@ -58,7 +65,6 @@ app.UseHttpsRedirection();
 app.MapControllers();
 app.UseStaticFiles();
 app.Run();
-
 
 #region Swagger Configuration Method
 
@@ -95,6 +101,18 @@ static void ConfigureSwagger(IServiceCollection services)
                 new List<string>()
             }
         });
+    });
+}
+
+#endregion
+
+#region Route Options Configuration Method
+
+static void ConfigureRouteOptions(IServiceCollection services)
+{
+    services.Configure<RouteOptions>(options =>
+    {
+        options.LowercaseUrls = true; // Generate lowercase urls
     });
 }
 

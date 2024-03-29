@@ -8,10 +8,10 @@ namespace MokaServices.AuthenticationService.Application.Interfaces;
 
 public interface IAuthenticationService
 {
-    Task<AuthResponseDto> LoginAsync(LoginRequest request);
+    Task<AuthResponse> LoginAsync(LoginRequest request);
 
     // Method to register a new user
-    Task<AuthResponseDto> RegisterUserAsync(RegistrationRequest userRegistration);
+    Task<AuthResponse> RegisterUserAsync(RegistrationRequest userRegistration);
 
     // Method to refresh an expired JWT token
     Task<string> RefreshTokenAsync(string token, string refreshToken);

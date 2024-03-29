@@ -29,9 +29,12 @@ public class TokenGenerator : ITokenGenerator
         ValidateJwtSettings(_secretKey, nameof(_secretKey));
         ValidateJwtSettings(_issuer, nameof(_issuer));
         ValidateJwtSettings(_audience, nameof(_audience));
+
+        // Validate the secret key length for HS256
+        ValidateKeyLength(_secretKey);
     }
 
-    public Task<string> GenerateTokenAsync(UserClaims userClaims)
+    public Task<(string Token, DateTime ExpiresAt)> GenerateTokenAsync(UserClaims userClaims)
     {
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_secretKey!));
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -42,18 +45,18 @@ public class TokenGenerator : ITokenGenerator
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             // Add other claims as needed from UserClaims
         };
-
+        var expiresAt = DateTime.UtcNow.AddHours(1);
         var token = new JwtSecurityToken(
             _issuer,
             _audience,
             claims,
-            expires: DateTime.UtcNow.AddHours(1), // Use UTC time to avoid timezone issues
+            expires: expiresAt, // Use UTC time to avoid timezone issues
             signingCredentials: creds);
 
         var tokenHandler = new JwtSecurityTokenHandler();
         var serializedToken = tokenHandler.WriteToken(token);
 
-        return Task.FromResult(serializedToken);
+        return Task.FromResult((Token: serializedToken, ExpiresAt: expiresAt));
     }
 
     private void ValidateJwtSettings(string? value, string paramName)
@@ -61,5 +64,15 @@ public class TokenGenerator : ITokenGenerator
         if (string.IsNullOrEmpty(value))
             throw new DetailedArgumentNullException(paramName, null,
                 $"{paramName} in JwtSettings is not configured correctly in appsettings.json.");
+    }
+
+    private void ValidateKeyLength(string? secretKey)
+    {
+        if (secretKey == null) throw new ArgumentException("Secret key is null.");
+
+        var keyBytes = Encoding.UTF8.GetBytes(secretKey);
+        if (keyBytes.Length * 8 < 256) // Check if key length is less than 256 bits
+            throw new DetailedArgumentNullException(nameof(secretKey), "<redacted>",
+                "The secret key is not of sufficient length. It must be at least 256 bits long.");
     }
 }

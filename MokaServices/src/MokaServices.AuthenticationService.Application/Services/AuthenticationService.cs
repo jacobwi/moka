@@ -16,7 +16,14 @@ public class AuthenticationService(
     IPasswordHasher passwordHasher)
     : IAuthenticationService
 {
-    public async Task<AuthResponseDto> LoginAsync(LoginRequest request)
+    public Task<string> RefreshTokenAsync(string token, string refreshToken)
+    {
+        // Implement the logic to verify the existing token, validate the refresh token,
+        // and then generate a new JWT token if the refresh token is valid.
+        throw new NotImplementedException();
+    }
+
+    public async Task<AuthResponse> LoginAsync(LoginRequest request)
     {
         var user = await userRepository.GetAsync(request.UsernameOrEmail,
             request.UsernameOrEmail.Contains('@') ? BaseUserLookupType.Email : BaseUserLookupType.Username);
@@ -31,17 +38,21 @@ public class AuthenticationService(
             UserId = user.Id
         };
 
-        var token = await tokenGenerator.GenerateTokenAsync(userClaims);
+        var tokenGenerateResult = await tokenGenerator.GenerateTokenAsync(userClaims);
 
-        // TODO: Map the user to a DTO if needed
-        return new AuthResponseDto { Token = token, User = null };
+        return new AuthResponse { Token = tokenGenerateResult.Token, ExpiresAt = tokenGenerateResult.ExpiresAt };
     }
 
-    public async Task<AuthResponseDto> RegisterUserAsync(RegistrationRequest userRegistration)
+    public async Task<AuthResponse> RegisterUserAsync(RegistrationRequest userRegistration)
     {
-        var existingUser = await userRepository.GetAsync(userRegistration.Username, BaseUserLookupType.Username);
-        if (existingUser != null)
-            throw new AuthenticationException(userRegistration.Username, contextInfo: GetType().Name);
+        var existingUserName =
+            await userRepository.UserExistsAsync(userRegistration.Username, BaseUserLookupType.Username);
+        if (existingUserName)
+            throw new AuthenticationException("Username is already taken", contextInfo: GetType().Name);
+
+        var existingEmail = await userRepository.UserExistsAsync(userRegistration.Email, BaseUserLookupType.Email);
+        if (existingEmail)
+            throw new AuthenticationException("Email is already taken", contextInfo: GetType().Name);
 
         var hashedPassword = passwordHasher.HashPassword(userRegistration.Password);
         var newUser = new BaseUser
@@ -62,17 +73,8 @@ public class AuthenticationService(
             UserId = newUser.Id
         };
 
-        var token = await tokenGenerator.GenerateTokenAsync(userClaims);
+        var tokenGenerateResult = await tokenGenerator.GenerateTokenAsync(userClaims);
 
-        // TODO: Map the user to a DTO if needed
-
-        return new AuthResponseDto { Token = token, User = null };
-    }
-
-    public Task<string> RefreshTokenAsync(string token, string refreshToken)
-    {
-        // Implement the logic to verify the existing token, validate the refresh token,
-        // and then generate a new JWT token if the refresh token is valid.
-        throw new NotImplementedException();
+        return new AuthResponse { Token = tokenGenerateResult.Token, ExpiresAt = tokenGenerateResult.ExpiresAt };
     }
 }

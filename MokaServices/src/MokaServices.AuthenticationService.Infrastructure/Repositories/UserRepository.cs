@@ -31,4 +31,15 @@ public class UserRepository(AuthenticationDbContext context) : IUserRepository
             _ => null
         };
     }
+
+    public Task<bool> UserExistsAsync(string lookupValue, BaseUserLookupType lookupType)
+    {
+        return lookupType switch
+        {
+            BaseUserLookupType.Email => context.Users.AnyAsync(u => u.Email == lookupValue),
+            BaseUserLookupType.Username => context.Users.AnyAsync(u => u.Username == lookupValue),
+            BaseUserLookupType.Id => context.Users.AnyAsync(u => u.Id == lookupValue),
+            _ => Task.FromResult(false)
+        };
+    }
 }

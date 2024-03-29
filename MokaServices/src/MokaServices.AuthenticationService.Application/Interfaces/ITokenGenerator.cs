@@ -3,7 +3,7 @@ namespace MokaServices.AuthenticationService.Application.Interfaces;
 public interface ITokenGenerator
 {
     // Method to generate a new token based on specific user claims or attributes
-    Task<string> GenerateTokenAsync(UserClaims userClaims);
+    Task<(string Token, DateTime ExpiresAt)> GenerateTokenAsync(UserClaims userClaims);
 }
 
 public class UserClaims

@@ -22,7 +22,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="swagger-ui\"/>
         <Folder Include="wwwroot\"/>
     </ItemGroup>
 
