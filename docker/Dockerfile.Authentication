@@ -1,0 +1,27 @@
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+USER $APP_UID
+WORKDIR /app
+EXPOSE 8080
+EXPOSE 8081
+
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+ARG BUILD_CONFIGURATION=Release
+WORKDIR /src
+COPY ["MokaServices/src/Authentication/MokaServices.AuthenticationService.API/MokaServices.AuthenticationService.API.csproj", "Authentication/MokaServices.AuthenticationService.API/"]
+COPY ["MokaServices/src/MokaServices.Shared/MokaServices.Shared.csproj", "MokaServices.Shared/"]
+COPY ["MokaServices/src/Authentication/MokaServices.AuthenticationService.Application/MokaServices.AuthenticationService.Application.csproj", "Authentication/MokaServices.AuthenticationService.Application/"]
+COPY ["MokaServices/src/Authentication/MokaServices.AuthenticationService.Domain/MokaServices.AuthenticationService.Domain.csproj", "Authentication/MokaServices.AuthenticationService.Domain/"]
+COPY ["MokaServices/src/Authentication/MokaServices.AuthenticationService.Infrastructure/MokaServices.AuthenticationService.Infrastructure.csproj", "Authentication/MokaServices.AuthenticationService.Infrastructure/"]
+RUN dotnet restore "Authentication/MokaServices.AuthenticationService.API/MokaServices.AuthenticationService.API.csproj"
+COPY MokaServices/. .
+WORKDIR "/src/Authentication/MokaServices.AuthenticationService.API"
+RUN dotnet build "MokaServices.AuthenticationService.API.csproj" -c $BUILD_CONFIGURATION -o /app/build
+
+FROM build AS publish
+ARG BUILD_CONFIGURATION=Release
+RUN dotnet publish "MokaServices.AuthenticationService.API.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "MokaServices.AuthenticationService.API.dll"]

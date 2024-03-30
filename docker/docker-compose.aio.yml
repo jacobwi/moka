@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  aio-service:
+    build:
+      context: ../MokaServices
+      dockerfile: docker/Dockerfile.AIO
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+
+networks:
+  default:
+    name: moka-network

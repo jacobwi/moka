@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  authentication-service:
+    build:
+      context: ../MokaServices
+      dockerfile: src/Authentication/MokaServices.AuthenticationService.API/Dockerfile
+    ports:
+      - "7269:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+
+  bytemarks-service:
+    build:
+      context: ../MokaServices
+      dockerfile: src/Bytemarks/MokaServices.BytemarksService.Api/Dockerfile
+    ports:
+      - "7270:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+
+networks:
+  default:
+    name: moka-network

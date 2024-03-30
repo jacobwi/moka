@@ -5,6 +5,7 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <RootNamespace>MokaServices.BytemarksService.Api</RootNamespace>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     </PropertyGroup>
 
     <ItemGroup>
@@ -26,6 +27,12 @@
     <ItemGroup>
         <ProjectReference Include="..\MokaServices.BytemarksService.Application\MokaServices.BytemarksService.Application.csproj"/>
         <ProjectReference Include="..\MokaServices.BytemarksService.Infrastructure\MokaServices.BytemarksService.Infrastructure.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="..\..\..\.dockerignore">
+            <Link>.dockerignore</Link>
+        </Content>
     </ItemGroup>
 
 </Project>

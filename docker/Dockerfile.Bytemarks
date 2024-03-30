@@ -1,0 +1,27 @@
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+USER $APP_UID
+WORKDIR /app
+EXPOSE 8080
+EXPOSE 8081
+
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+ARG BUILD_CONFIGURATION=Release
+WORKDIR /src
+COPY ["../MokaServices/src/Bytemarks/MokaServices.BytemarksService.Api/MokaServices.BytemarksService.Api.csproj", "Bytemarks/MokaServices.BytemarksService.Api/"]
+COPY ["../MokaServices/src/Bytemarks/MokaServices.BytemarksService.Application/MokaServices.BytemarksService.Application.csproj", "Bytemarks/MokaServices.BytemarksService.Application/"]
+COPY ["../MokaServices/src/Bytemarks/MokaServices.BytemarksService.Domain/MokaServices.BytemarksService.Domain.csproj", "Bytemarks/MokaServices.BytemarksService.Domain/"]
+COPY ["../MokaServices/src/MokaServices.Shared/MokaServices.Shared.csproj", "MokaServices.Shared/"]
+COPY ["../MokaServices/src/Bytemarks/MokaServices.BytemarksService.Infrastructure/MokaServices.BytemarksService.Infrastructure.csproj", "Bytemarks/MokaServices.BytemarksService.Infrastructure/"]
+RUN dotnet restore "Bytemarks/MokaServices.BytemarksService.Api/MokaServices.BytemarksService.Api.csproj"
+COPY ../MokaServices/. .
+WORKDIR "/src/Bytemarks/MokaServices.BytemarksService.Api"
+RUN dotnet build "MokaServices.BytemarksService.Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
+
+FROM build AS publish
+ARG BUILD_CONFIGURATION=Release
+RUN dotnet publish "MokaServices.BytemarksService.Api.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "MokaServices.BytemarksService.Api.dll"]

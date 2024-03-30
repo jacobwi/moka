@@ -1,0 +1,24 @@
+# TODO: Need to create entry point for AIO
+
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+
+# Copy csproj files and restore to cache the layers
+COPY ["MokaServices/src/Authentication/MokaServices.AuthenticationService.API/MokaServices.AuthenticationService.API.csproj", "Authentication/MokaServices.AuthenticationService.API/"]
+COPY ["MokaServices/src/MokaServices.Shared/MokaServices.Shared.csproj", "MokaServices.Shared/"]
+# Repeat for all required csproj files
+RUN dotnet restore "Authentication/MokaServices.AuthenticationService.API/MokaServices.AuthenticationService.API.csproj"
+
+# Copy the rest of the source code
+COPY MokaServices/. .
+# Build and publish the AIO entry point
+# Assuming AIO entry point is under MokaServices/src/AioEntryPoint
+WORKDIR "/src/AioEntryPoint"
+RUN dotnet publish -c Release -o /app --no-restore
+
+# Runtime image
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
+WORKDIR /app
+COPY --from=build /app .
+EXPOSE 80
+ENTRYPOINT ["dotnet", "AioEntryPoint.dll"]
