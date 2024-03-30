@@ -1,10 +1,36 @@
 name: Admin
 description: System administrators with full access
 permissions:
-  - manage_users
-  - manage_roles
-  - manage_permissions
-  - can_delete_users
-  - can_delete_roles
-  - can_delete_permissions
-  - access_all_resources
+  - name: UserManagement
+    description: Manage users
+    actions:
+      - name: View
+        description: View users
+      - name: Create
+        description: Create users
+      - name: Update
+        description: Update users
+      - name: Delete
+        description: Delete users
+  - name: RoleManagement
+    description: Manage roles
+    actions:
+      - name: View
+        description: View roles
+      - name: Create
+        description: Create roles
+      - name: Update
+        description: Update roles
+      - name: Delete
+        description: Delete roles
+  - name: PermissionManagement
+    description: Manage permissions
+    actions:
+      - name: View
+        description: View permissions
+      - name: Create
+        description: Create permissions
+      - name: Update
+        description: Update permissions
+      - name: Delete
+        description: Delete permissions

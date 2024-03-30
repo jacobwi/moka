@@ -1,10 +1,8 @@
-name: Admin
-description: System administrators with full access
+name: BasicUser
+description: Basic user with limited access
 permissions:
-  - manage_users
-  - manage_roles
-  - manage_permissions
-  - can_delete_users
-  - can_delete_roles
-  - can_delete_permissions
-  - access_all_resources
+  - name: LoginSystem
+    description: Login to the system
+    actions:
+      - name: Login
+        description: Able to login to the system

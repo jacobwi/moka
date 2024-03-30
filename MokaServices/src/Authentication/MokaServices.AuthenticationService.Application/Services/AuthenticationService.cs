@@ -5,6 +5,7 @@ using MokaServices.AuthenticationService.Domain.Entities;
 using MokaServices.AuthenticationService.Domain.Enums;
 using MokaServices.AuthenticationService.Domain.Exceptions;
 using MokaServices.AuthenticationService.Domain.Interfaces;
+using MokaServices.Shared.Services;
 
 #endregion
 
@@ -13,6 +14,7 @@ namespace MokaServices.AuthenticationService.Application.Services;
 public class AuthenticationService(
     IUserRepository userRepository,
     ITokenGenerator tokenGenerator,
+    RoleService roleService,
     IPasswordHasher passwordHasher)
     : IAuthenticationService
 {
@@ -30,12 +32,19 @@ public class AuthenticationService(
         if (user == null || !passwordHasher.VerifyPassword(user.PasswordHash, request.Password))
             throw new AuthenticationException("Invalid credentials", contextInfo: GetType().Name);
 
+        // TODO: Maybe there's a better way to handle this? Perform load testing lazy load vs preloading
+        // Get user roles
+        var userRoles = await userRepository.GetUserRolesAsync(user.Id);
+        user.UserRoles = userRoles.ToList();
+
+
         // Generate user claims
         var userClaims = new UserClaims
         {
             Username = user.Username,
             Email = user.Email,
-            UserId = user.Id
+            UserId = user.Id,
+            Roles = user.UserRoles.Select(r => r.Name).ToList()
         };
 
         var tokenGenerateResult = await tokenGenerator.GenerateTokenAsync(userClaims);
@@ -63,6 +72,15 @@ public class AuthenticationService(
             IsActive = true
         };
 
+        var defaultRole = await roleService.GetRoleByNameAsync("BasicUser");
+        if (defaultRole == null)
+            throw new AuthenticationException("Default role not found", contextInfo: GetType().Name);
+
+        // Get role perrmisions
+        var permissions = defaultRole.Permissions.Select(permission => new BasePermission
+            { Name = permission.Name, Description = permission.Description }).ToList();
+
+        newUser.UserRoles.Add(new BaseRole { Name = defaultRole.Name, Permissions = permissions });
         await userRepository.AddAsync(newUser);
 
 
@@ -70,7 +88,8 @@ public class AuthenticationService(
         {
             Username = newUser.Username,
             Email = newUser.Email,
-            UserId = newUser.Id
+            UserId = newUser.Id,
+            Roles = newUser.UserRoles.Select(r => r.Name).ToList()
         };
 
         var tokenGenerateResult = await tokenGenerator.GenerateTokenAsync(userClaims);

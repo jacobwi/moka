@@ -1,6 +1,5 @@
 #region
 
-using System.ComponentModel.DataAnnotations.Schema;
 using MokaServices.Shared.Entities;
 
 #endregion
@@ -12,7 +11,9 @@ public class BasePermission : VersionedBaseEntity
     public string Name { get; set; } = string.Empty; // Descriptive name of the permission (e.g., "CreateArticle")
     public string Description { get; set; } = string.Empty; // Detailed description of what the permission allows
 
-    [ForeignKey("RoleId")] public BaseRole Role { get; set; } = null!;
+    public string RoleId { get; set; } // Foreign key to the Role
+
+    public virtual BaseRole Role { get; set; } = null!;
 
     public override bool Equals(object? obj)
     {

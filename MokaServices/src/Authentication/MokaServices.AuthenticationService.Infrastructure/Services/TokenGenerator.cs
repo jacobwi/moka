@@ -42,15 +42,17 @@ public class TokenGenerator : ITokenGenerator
         var claims = new[]
         {
             new Claim(JwtRegisteredClaimNames.Sub, userClaims.Username),
-            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
-            // Add other claims as needed from UserClaims
+            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+            new Claim(JwtRegisteredClaimNames.Email, userClaims.Email),
+            new Claim("userId", userClaims.UserId),
+            new Claim("roles", string.Join(",", userClaims.Roles))
         };
         var expiresAt = DateTime.UtcNow.AddHours(1);
         var token = new JwtSecurityToken(
             _issuer,
             _audience,
             claims,
-            expires: expiresAt, // Use UTC time to avoid timezone issues
+            expires: expiresAt, // UTC time to avoid timezone issues
             signingCredentials: creds);
 
         var tokenHandler = new JwtSecurityTokenHandler();

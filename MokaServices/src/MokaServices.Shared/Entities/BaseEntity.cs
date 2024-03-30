@@ -17,7 +17,7 @@ public class BaseEntity : IBaseEntity
     }
 
     private DateTime? CreatedDate { get; }
-    public Guid CreatedBy { get; set; }
+    public string? CreatedBy { get; set; }
     public DateTime? LastModifiedDate { get; set; }
     public DateTime? LastModifiedBy { get; set; }
 

@@ -51,6 +51,17 @@ public class RoleService
             : null;
     }
 
+    public async Task<Role?> GetRoleByNameAsync(string name)
+    {
+        return await Task.Run(() => GetRoleByName(name));
+    }
+
+    public async Task<List<Permission>> GetPermissionsByRoleNameAsync(string name)
+    {
+        var role = await GetRoleByNameAsync(name);
+        return role?.Permissions ?? new List<Permission>();
+    }
+
     public IEnumerable<Role> GetAllRoles()
     {
         _cache.TryGetValue(CacheKey, out List<Role> roles);

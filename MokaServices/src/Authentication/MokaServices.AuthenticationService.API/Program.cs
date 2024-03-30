@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using MokaServices.AuthenticationService.API.Filters;
 using MokaServices.AuthenticationService.Application;
 using MokaServices.AuthenticationService.Infrastructure;
 using MokaServices.AuthenticationService.Infrastructure.Data;
@@ -17,7 +18,7 @@ var builder = WebApplication.CreateBuilder(args);
 #region Services Configuration
 
 // Services
-builder.Services.AddControllers();
+builder.Services.AddControllers(options => { options.Filters.Add<ApiExceptionFilter>(); });
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -90,10 +91,17 @@ builder.Services.AddAuthorization(options =>
 
 #endregion
 
+#region CORS
+
+ConfigureCors(builder);
+
+#endregion
+
 #endregion
 
 
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -108,7 +116,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseRouting();
+app.UseCors();
 // Authentication & Authorization
 app.UseAuthentication();
 app.UseAuthorization();
@@ -165,6 +174,40 @@ static void ConfigureRouteOptions(IServiceCollection services)
     {
         options.LowercaseUrls = true; // Generate lowercase urls
     });
+}
+
+#endregion
+
+#region CORS Configuration Method
+
+static void ConfigureCors(WebApplicationBuilder builder)
+{
+    // Load CORS policies from configuration
+    var corsPolicies = builder.Configuration.GetSection("CorsPolicies").GetChildren();
+
+    foreach (var policyConfig in corsPolicies)
+    {
+        var policyName = policyConfig.Key;
+        var allowedOrigins = policyConfig.GetSection("AllowedOrigins").Get<string[]>();
+        var allowedMethods = policyConfig.GetSection("AllowedMethods").Get<string[]>();
+        var allowedHeaders = policyConfig.GetSection("AllowedHeaders").Get<string[]>();
+        var allowCredentials = policyConfig.GetValue<bool>("AllowCredentials");
+
+        builder.Services.AddCors(options =>
+        {
+            options.AddPolicy(policyName, policyBuilder =>
+            {
+                policyBuilder.WithOrigins(allowedOrigins)
+                    .WithMethods(allowedMethods)
+                    .WithHeaders(allowedHeaders);
+
+                if (allowCredentials)
+                    policyBuilder.AllowCredentials();
+                else
+                    policyBuilder.DisallowCredentials();
+            });
+        });
+    }
 }
 
 #endregion

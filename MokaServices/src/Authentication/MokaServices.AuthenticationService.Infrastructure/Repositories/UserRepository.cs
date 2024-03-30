@@ -45,7 +45,8 @@ public class UserRepository(AuthenticationDbContext context) : IUserRepository
 
     public async Task<IEnumerable<BaseRole>> GetUserRolesAsync(string userId)
     {
-        var user = await context.Users.Include(u => u.UserRoles).FirstOrDefaultAsync(u => u.Id == userId);
+        var user = await context.Users.Include(u => u.UserRoles).ThenInclude(r => r.Permissions)
+            .FirstOrDefaultAsync(u => u.Id == userId);
 
         return user?.UserRoles ?? new List<BaseRole>();
     }
