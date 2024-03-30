@@ -1,6 +1,7 @@
 #region
 
 using System.Net;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MokaServices.AuthenticationService.Domain.Enums;
 using MokaServices.AuthenticationService.Domain.Exceptions;
@@ -10,11 +11,13 @@ using MokaServices.Shared.Models;
 
 namespace MokaServices.AuthenticationService.API.Controllers;
 
-[Route("api/[controller]")]
+[Route("api/admin/users")]
 [ApiController]
-public class AdminController(IUserService userService, IAuthenticationService authenticationService) : ControllerBase
+public class AdminUsersController(IUserService userService, IAuthenticationService authenticationService)
+    : ControllerBase
 {
     [HttpGet]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> GetUsers()
     {
         try
@@ -37,6 +40,7 @@ public class AdminController(IUserService userService, IAuthenticationService au
     }
 
     [HttpGet("{id}")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> GetUserById(string id)
     {
         try
@@ -59,6 +63,7 @@ public class AdminController(IUserService userService, IAuthenticationService au
     }
 
     [HttpPost]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> CreateUser([FromBody] RegistrationRequest user)
     {
         try
@@ -88,6 +93,7 @@ public class AdminController(IUserService userService, IAuthenticationService au
     }
 
     [HttpPut("{id}")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> UpdateUser(string id, [FromBody] BaseUser user)
     {
         try
@@ -115,6 +121,7 @@ public class AdminController(IUserService userService, IAuthenticationService au
     }
 
     [HttpDelete("{id}")]
+    [Authorize(Policy = "Admin-can_delete_users")]
     public async Task<IActionResult> DeleteUser(string id)
     {
         try

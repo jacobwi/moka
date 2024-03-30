@@ -11,4 +11,25 @@
         <PackageReference Include="YamlDotNet" Version="15.1.2"/>
     </ItemGroup>
 
+    <ItemGroup>
+        <None Update="Configurations\ErrorCodes\App.yaml">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Configurations\ErrorCodes\Auth.yaml">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Configurations\ErrorCodes\Base.yaml">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Configurations\ErrorCodes\Database.yaml">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Configurations\ErrorCodes\Entity.yaml">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Configurations\RolePermissions\Admin.yaml">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+
 </Project>

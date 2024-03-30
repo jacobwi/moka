@@ -1,6 +1,9 @@
 #region
 
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using MokaServices.AuthenticationService.Application;
 using MokaServices.AuthenticationService.Infrastructure;
@@ -46,7 +49,49 @@ ConfigureSwagger(builder.Services);
 
 #endregion
 
+#region Shared Services Configuration
+
+// Add shared services
+builder.Services.AddSingleton<ErrorCodeService>();
+
 #endregion
+
+#region Auth Configuration
+
+// JWT Authentication
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        var jwtSettings = builder.Configuration.GetSection("Jwt");
+
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = jwtSettings.GetValue<bool>("ValidateIssuerSigningKey"),
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings["Key"])),
+            ValidateIssuer = jwtSettings.GetValue<bool>("ValidateIssuer"),
+            ValidateAudience = jwtSettings.GetValue<bool>("ValidateAudience"),
+            ValidateLifetime = jwtSettings.GetValue<bool>("ValidateLifetime"),
+            ValidIssuer = jwtSettings["Issuer"],
+            ValidAudience = jwtSettings["Audience"],
+            ClockSkew = TimeSpan.FromMinutes(jwtSettings.GetValue<int>("ClockSkew"))
+        };
+    });
+
+// Authorization
+// Get the RoleService from the DI container
+builder.Services.AddSingleton<RoleService>();
+var roleService = builder.Services.BuildServiceProvider().GetService<RoleService>();
+builder.Services.AddAuthorization(options =>
+{
+    // Add a policy for each role
+    foreach (var role in roleService!.GetAllRoles())
+        options.AddPolicy(role.Name, policy => policy.RequireRole(role.Name));
+});
+
+#endregion
+
+#endregion
+
 
 var app = builder.Build();
 
@@ -62,6 +107,11 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// Authentication & Authorization
+app.UseAuthentication();
+app.UseAuthorization();
+
 app.MapControllers();
 app.UseStaticFiles();
 app.Run();

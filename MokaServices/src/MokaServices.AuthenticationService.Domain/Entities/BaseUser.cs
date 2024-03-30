@@ -17,6 +17,6 @@ public class BaseUser : VersionedBaseEntity
     public bool IsActive { get; set; }
 
     // Navigation Properties
-    public ICollection<BaseRole> UserRoles { get; set; }
-    public ICollection<BasePermission> Permissions { get; set; } = new List<BasePermission>();
+    public ICollection<BaseRole> UserRoles { get; set; } = [];
+    public ICollection<BasePermission> Permissions { get; set; } = [];
 }
