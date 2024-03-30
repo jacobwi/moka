@@ -44,6 +44,9 @@ ConfigureSwagger(builder.Services);
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
+        var jwtSettings = builder.Configuration.GetSection("Jwt");
+        options.Authority = jwtSettings["Authority"];
+        options.Audience = jwtSettings["Audience"];
         // TODO: Make it environment aware
         // The Authority is the issuer URL of AuthenticationService
         options.Authority = "http://localhost:7269";
@@ -54,14 +57,14 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         // If auth service and BytemarksService are within the same domain, we might not need to explicitly set the Authority.
         options.TokenValidationParameters = new TokenValidationParameters
         {
-            ValidateIssuerSigningKey = true,
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"])),
-            ValidateIssuer = true,
-            ValidIssuer = builder.Configuration["Jwt:Issuer"],
-            ValidateAudience = true,
-            ValidAudience = builder.Configuration["Jwt:Audience"],
-            ValidateLifetime = true,
-            ClockSkew = TimeSpan.Zero // TBLI: To be looked into
+            ValidateIssuerSigningKey = bool.Parse(jwtSettings["ValidateIssuerSigningKey"]),
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings["Key"])),
+            ValidateIssuer = bool.Parse(jwtSettings["ValidateIssuer"]),
+            ValidIssuer = jwtSettings["Issuer"],
+            ValidateAudience = bool.Parse(jwtSettings["ValidateAudience"]),
+            ValidAudience = jwtSettings["Audience"],
+            ValidateLifetime = bool.Parse(jwtSettings["ValidateLifetime"]),
+            ClockSkew = TimeSpan.Zero
         };
     });
 
