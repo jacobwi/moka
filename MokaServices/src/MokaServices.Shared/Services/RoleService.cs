@@ -1,7 +1,7 @@
 #region
 
 using Microsoft.Extensions.Caching.Memory;
-using MokaServices.Shared.DTOs;
+using MokaServices.Shared.Models;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 

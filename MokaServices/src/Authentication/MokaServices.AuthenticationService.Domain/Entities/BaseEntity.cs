@@ -1,6 +1,7 @@
 ﻿#region
 
 using System.ComponentModel.DataAnnotations;
+using MokaServices.AuthenticationService.Domain.Entities;
 using MokaServices.Shared.Attributes;
 using MokaServices.Shared.Models;
 
@@ -10,7 +11,7 @@ namespace MokaServices.AuthenticationService.Domain;
 
 public class BaseEntity : IBaseEntity
 {
-    public BaseEntity()
+    protected BaseEntity()
     {
         Id = Id ?? NanoId.Generate();
         CreatedDate = CreatedDate ?? DateTime.UtcNow;

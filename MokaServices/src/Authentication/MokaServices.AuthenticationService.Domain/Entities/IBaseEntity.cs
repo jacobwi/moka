@@ -4,7 +4,7 @@ using MokaServices.Shared.Attributes;
 
 #endregion
 
-namespace MokaServices.AuthenticationService.Domain;
+namespace MokaServices.AuthenticationService.Domain.Entities;
 
 public interface IBaseEntity
 {

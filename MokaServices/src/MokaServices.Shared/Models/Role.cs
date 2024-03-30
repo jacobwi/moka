@@ -1,4 +1,4 @@
-namespace MokaServices.Shared.DTOs;
+namespace MokaServices.Shared.Models;
 
 public class Role
 {

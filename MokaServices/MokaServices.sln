@@ -2,13 +2,13 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AuthenticationService", "AuthenticationService", "{C302497A-1547-4299-8D59-278C4D24A5EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MokaServices.AuthenticationService.Domain", "src\MokaServices.AuthenticationService.Domain\MokaServices.AuthenticationService.Domain.csproj", "{F68E4F92-29C8-4F50-853B-A78BF15E7FF1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MokaServices.AuthenticationService.Domain", "src\Authentication\MokaServices.AuthenticationService.Domain\MokaServices.AuthenticationService.Domain.csproj", "{F68E4F92-29C8-4F50-853B-A78BF15E7FF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MokaServices.AuthenticationService.Application", "src\MokaServices.AuthenticationService.Application\MokaServices.AuthenticationService.Application.csproj", "{524A74A4-B26D-4243-A2F8-0DBFD46C9A58}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MokaServices.AuthenticationService.Application", "src\Authentication\MokaServices.AuthenticationService.Application\MokaServices.AuthenticationService.Application.csproj", "{524A74A4-B26D-4243-A2F8-0DBFD46C9A58}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MokaServices.AuthenticationService.Infrastructure", "src\MokaServices.AuthenticationService.Infrastructure\MokaServices.AuthenticationService.Infrastructure.csproj", "{E3D46A4E-3311-4779-9A9D-009B340CE0ED}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MokaServices.AuthenticationService.Infrastructure", "src\Authentication\MokaServices.AuthenticationService.Infrastructure\MokaServices.AuthenticationService.Infrastructure.csproj", "{E3D46A4E-3311-4779-9A9D-009B340CE0ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MokaServices.AuthenticationService.API", "src\MokaServices.AuthenticationService.API\MokaServices.AuthenticationService.API.csproj", "{54BA7C57-3E55-45BD-A63B-368E742FE3C0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MokaServices.AuthenticationService.API", "src\Authentication\MokaServices.AuthenticationService.API\MokaServices.AuthenticationService.API.csproj", "{54BA7C57-3E55-45BD-A63B-368E742FE3C0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AuthenticationService.Tests", "AuthenticationService.Tests", "{64F07923-6A9F-405E-BF74-69F02291EBB8}"
 EndProject
