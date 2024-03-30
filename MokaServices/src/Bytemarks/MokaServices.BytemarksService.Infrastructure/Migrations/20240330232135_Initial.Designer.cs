@@ -11,7 +11,7 @@ using MokaServices.BytemarksService.Infrastructure.Data;
 namespace MokaServices.BytemarksService.Infrastructure.Migrations
 {
     [DbContext(typeof(BytemarksDbContext))]
-    [Migration("20240330155040_Initial")]
+    [Migration("20240330232135_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -55,7 +55,7 @@ namespace MokaServices.BytemarksService.Infrastructure.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("CreatedBy")
+                    b.Property<string>("CreatedBy")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Description")

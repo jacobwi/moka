@@ -25,7 +25,7 @@ namespace MokaServices.AuthenticationService.Infrastructure.Migrations
                     b.Property<string>("BaseUserId")
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("CreatedBy")
+                    b.Property<string>("CreatedBy")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
@@ -66,7 +66,7 @@ namespace MokaServices.AuthenticationService.Infrastructure.Migrations
                     b.Property<string>("BaseUserId")
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("CreatedBy")
+                    b.Property<string>("CreatedBy")
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("LastModifiedBy")
@@ -94,7 +94,7 @@ namespace MokaServices.AuthenticationService.Infrastructure.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("CreatedBy")
+                    b.Property<string>("CreatedBy")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Email")

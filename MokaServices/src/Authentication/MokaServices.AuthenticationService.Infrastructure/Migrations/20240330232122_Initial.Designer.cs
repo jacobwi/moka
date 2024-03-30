@@ -11,7 +11,7 @@ using MokaServices.AuthenticationService.Infrastructure.Data;
 namespace MokaServices.AuthenticationService.Infrastructure.Migrations
 {
     [DbContext(typeof(AuthenticationDbContext))]
-    [Migration("20240329190933_Initial")]
+    [Migration("20240330232122_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -28,7 +28,7 @@ namespace MokaServices.AuthenticationService.Infrastructure.Migrations
                     b.Property<string>("BaseUserId")
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("CreatedBy")
+                    b.Property<string>("CreatedBy")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
@@ -69,7 +69,7 @@ namespace MokaServices.AuthenticationService.Infrastructure.Migrations
                     b.Property<string>("BaseUserId")
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("CreatedBy")
+                    b.Property<string>("CreatedBy")
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("LastModifiedBy")
@@ -97,7 +97,7 @@ namespace MokaServices.AuthenticationService.Infrastructure.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("CreatedBy")
+                    b.Property<string>("CreatedBy")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Email")

@@ -19,7 +19,7 @@ namespace MokaServices.BytemarksService.Infrastructure.Migrations
                     Title = table.Column<string>(type: "TEXT", nullable: false),
                     URL = table.Column<string>(type: "TEXT", nullable: false),
                     Description = table.Column<string>(type: "TEXT", nullable: false),
-                    CreatedBy = table.Column<Guid>(type: "TEXT", nullable: false),
+                    CreatedBy = table.Column<string>(type: "TEXT", nullable: true),
                     LastModifiedDate = table.Column<DateTime>(type: "TEXT", nullable: true),
                     LastModifiedBy = table.Column<DateTime>(type: "TEXT", nullable: true)
                 },

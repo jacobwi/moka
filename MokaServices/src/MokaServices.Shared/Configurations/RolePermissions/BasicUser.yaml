@@ -1,0 +1,10 @@
+name: Admin
+description: System administrators with full access
+permissions:
+  - manage_users
+  - manage_roles
+  - manage_permissions
+  - can_delete_users
+  - can_delete_roles
+  - can_delete_permissions
+  - access_all_resources

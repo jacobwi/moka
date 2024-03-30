@@ -20,7 +20,7 @@ namespace MokaServices.AuthenticationService.Infrastructure.Migrations
                     Email = table.Column<string>(type: "TEXT", nullable: false),
                     PasswordHash = table.Column<string>(type: "TEXT", nullable: false),
                     IsActive = table.Column<bool>(type: "INTEGER", nullable: false),
-                    CreatedBy = table.Column<Guid>(type: "TEXT", nullable: false),
+                    CreatedBy = table.Column<string>(type: "TEXT", nullable: true),
                     LastModifiedDate = table.Column<DateTime>(type: "TEXT", nullable: true),
                     LastModifiedBy = table.Column<DateTime>(type: "TEXT", nullable: true),
                     Version = table.Column<int>(type: "INTEGER", nullable: false)
@@ -37,7 +37,7 @@ namespace MokaServices.AuthenticationService.Infrastructure.Migrations
                     Id = table.Column<string>(type: "TEXT", nullable: false),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
                     BaseUserId = table.Column<string>(type: "TEXT", nullable: true),
-                    CreatedBy = table.Column<Guid>(type: "TEXT", nullable: false),
+                    CreatedBy = table.Column<string>(type: "TEXT", nullable: true),
                     LastModifiedDate = table.Column<DateTime>(type: "TEXT", nullable: true),
                     LastModifiedBy = table.Column<DateTime>(type: "TEXT", nullable: true),
                     Version = table.Column<int>(type: "INTEGER", nullable: false)
@@ -61,7 +61,7 @@ namespace MokaServices.AuthenticationService.Infrastructure.Migrations
                     Description = table.Column<string>(type: "TEXT", nullable: false),
                     RoleId = table.Column<string>(type: "TEXT", nullable: false),
                     BaseUserId = table.Column<string>(type: "TEXT", nullable: true),
-                    CreatedBy = table.Column<Guid>(type: "TEXT", nullable: false),
+                    CreatedBy = table.Column<string>(type: "TEXT", nullable: true),
                     LastModifiedDate = table.Column<DateTime>(type: "TEXT", nullable: true),
                     LastModifiedBy = table.Column<DateTime>(type: "TEXT", nullable: true),
                     Version = table.Column<int>(type: "INTEGER", nullable: false)
