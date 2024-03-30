@@ -7,7 +7,7 @@ using MokaServices.Shared.Entities;
 
 namespace MokaServices.BytemarksService.Domain.Entities;
 
-public class Bookmark : BaseEntity // Assuming BaseEntity contains common properties like Id, CreatedAt, etc.
+public class Bookmark : BaseEntity
 {
     [Required] public string Title { get; set; }
 
