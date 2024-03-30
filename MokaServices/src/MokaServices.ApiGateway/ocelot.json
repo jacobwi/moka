@@ -10,6 +10,17 @@
         }
       ],
       "UpstreamPathTemplate": "/api/auth/{everything}"
+    },
+    {
+      "DownstreamPathTemplate": "/api/bookmarks/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7270
+        }
+      ],
+      "UpstreamPathTemplate": "/api/bookmarks/{everything}"
     }
   ],
   "GlobalConfiguration": {
