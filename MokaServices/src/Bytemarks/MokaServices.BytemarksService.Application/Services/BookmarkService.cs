@@ -1,7 +1,6 @@
 ﻿#region
 
 using MokaServices.BytemarksService.Application.DTOs;
-using MokaServices.BytemarksService.Domain;
 using MokaServices.BytemarksService.Domain.Entities;
 using MokaServices.BytemarksService.Domain.Interfaces;
 using Nelibur.ObjectMapper;

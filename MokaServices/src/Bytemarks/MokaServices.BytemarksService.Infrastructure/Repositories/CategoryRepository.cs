@@ -1,7 +1,6 @@
 ﻿#region
 
 using Microsoft.EntityFrameworkCore;
-using MokaServices.BytemarksService.Domain;
 using MokaServices.BytemarksService.Domain.Entities;
 using MokaServices.BytemarksService.Domain.Interfaces;
 using MokaServices.BytemarksService.Infrastructure.Data;

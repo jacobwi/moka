@@ -8,6 +8,5 @@ namespace MokaServices.Shared.Entities;
 
 public interface IBaseEntity
 {
-    [NanoId]
-    string Id { get; set; }
+    [NanoId] string Id { get; set; }
 }

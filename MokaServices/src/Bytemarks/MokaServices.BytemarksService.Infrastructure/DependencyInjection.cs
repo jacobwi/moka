@@ -1,7 +1,6 @@
 ﻿#region
 
 using Microsoft.Extensions.DependencyInjection;
-using MokaServices.BytemarksService.Domain;
 using MokaServices.BytemarksService.Domain.Interfaces;
 using MokaServices.BytemarksService.Infrastructure.Repositories;
 

@@ -32,8 +32,6 @@
     <ItemGroup>
         <ProjectReference Include="..\..\src\Authentication\MokaServices.AuthenticationService.Domain\MokaServices.AuthenticationService.Domain.csproj"/>
         <ProjectReference Include="..\..\src\Authentication\MokaServices.AuthenticationService.Infrastructure\MokaServices.AuthenticationService.Infrastructure.csproj"/>
-        <ProjectReference Include="..\..\src\MokaServices.AuthenticationService.Domain\MokaServices.AuthenticationService.Domain.csproj"/>
-        <ProjectReference Include="..\..\src\MokaServices.AuthenticationService.Infrastructure\MokaServices.AuthenticationService.Infrastructure.csproj"/>
     </ItemGroup>
 
 </Project>

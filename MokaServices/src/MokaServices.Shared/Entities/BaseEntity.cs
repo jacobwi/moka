@@ -21,7 +21,5 @@ public class BaseEntity : IBaseEntity
     public DateTime? LastModifiedDate { get; set; }
     public DateTime? LastModifiedBy { get; set; }
 
-    [NanoId]
-    [Key]
-    public string Id { get; set; }
+    [NanoId] [Key] public string Id { get; set; }
 }

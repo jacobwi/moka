@@ -2,7 +2,11 @@
 
 #endregion
 
+#region
+
 using MokaServices.Shared.Entities;
+
+#endregion
 
 namespace MokaServices.AuthenticationService.Domain.Entities;
 

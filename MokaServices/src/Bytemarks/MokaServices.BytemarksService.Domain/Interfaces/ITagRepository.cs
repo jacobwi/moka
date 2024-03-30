@@ -1,4 +1,8 @@
-﻿using MokaServices.BytemarksService.Domain.Entities;
+﻿#region
+
+using MokaServices.BytemarksService.Domain.Entities;
+
+#endregion
 
 namespace MokaServices.BytemarksService.Domain.Interfaces;
 
