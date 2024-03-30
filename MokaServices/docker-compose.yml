@@ -1,0 +1,6 @@
+﻿services:
+  mokaservices.authenticationservice.api:
+    image: mokaservices.authenticationservice.api
+    build:
+      context: .
+      dockerfile: src/Authentication/MokaServices.AuthenticationService.API/Dockerfile
