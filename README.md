@@ -14,7 +14,6 @@ Below is the architectural diagram for MokaServices, outlining the interaction b
 
 This diagram provides a visual representation of how each microservice within MokaServices is designed to work in conjunction with others, ensuring scalability, resilience, and modularity of the entire ecosystem.
 
-
 ### Tech Stack & Architecture:
 
 - **.NET 8**: Our microservices are crafted with the latest .NET framework, ensuring performance and robustness.
@@ -25,7 +24,6 @@ This diagram provides a visual representation of how each microservice within Mo
 - **RabbitMQ + Azure Service Bus**: For reliable message brokering between services, ensuring decoupled communication and scalability.
 - **Ocelot API Gateway**: Unifies our service endpoints, providing a single entry point to the frontend, simplifying API consumption.
 
-
 ### Microservices Overview:
 
 - **Authentication Service**: Manages user authentication, leveraging JWT for secure token generation.
@@ -33,7 +31,6 @@ This diagram provides a visual representation of how each microservice within Mo
 - **Password Manager Service**: Secures user passwords, implementing encryption standards for data safety.
 
 ...with the flexibility to introduce additional services as the suite evolves.
-
 
 ### 📚 Documentation:
 
@@ -61,9 +58,47 @@ We adopt **BDD (Behavior-Driven Development)** to bridge the gap between technic
 
 Dive into MokaSuite, whether for self-hosting or cloud deployment. Check our `docs` for setup guides and start your journey with a suite designed for the future.
 
+## Docker Swarm Deployment 🐳
+
+**_Remember this is 'develop' branch. It might not be production ready._**
+
+Deploy MokaServices on Docker Swarm with these commands:
+
+```bash
+# Initialize Docker Swarm (on manager node)
+docker swarm init --advertise-addr <MANAGER-IP>
+
+# Join the swarm (on worker nodes)
+docker swarm join --token <SWARM-TOKEN> <MANAGER-IP>:2377
+
+# Deploy MokaServices stack
+docker stack deploy -c docker-compose.services.yml mokaservices
+# Or for AIO
+docker stack deploy -c docker-compose.aio.yml mokaservices-aio
+
+# View running services
+docker service ls
+
+# Scale a service
+docker service scale mokaservices_<SERVICE-NAME>=<REPLICAS>
+
+# Remove the stack
+docker stack rm mokaservices
+# Or for AIO
+docker stack rm mokaservices-aio
+
+# Leave the swarm (on worker nodes)
+docker swarm leave
+# On manager node
+docker swarm leave --force
+```
+
+Replace placeholders like `<MANAGER-IP>`, `<SWARM-TOKEN>`, `<SERVICE-NAME>`, and `<REPLICAS>` with your actual data.
+
 ## Contributing 🤝
 
-WIP 
+WIP
+
 ```
 Join the MokaSuite community! Your contributions, from features to bug fixes or docs enhancements, are invaluable. Check `CONTRIBUTING.md` for how to get started.
 ```
@@ -71,4 +106,3 @@ Join the MokaSuite community! Your contributions, from features to bug fixes or 
 ## License ⚖️
 
 MokaSuite is proudly open-source, available under the MIT License. See `LICENSE` for more details.
-
