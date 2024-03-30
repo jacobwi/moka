@@ -1,6 +1,7 @@
 #region
 
 using System.ComponentModel.DataAnnotations;
+using MokaServices.Shared.Entities;
 
 #endregion
 
@@ -10,9 +11,12 @@ public class BaseUser : VersionedBaseEntity
 {
     public string Username { get; set; }
 
-    [Required] [EmailAddress] public string Email { get; set; }
+    [Required]
+    [EmailAddress]
+    public string Email { get; set; }
 
-    [Required] public string PasswordHash { get; set; }
+    [Required]
+    public string PasswordHash { get; set; }
 
     public bool IsActive { get; set; }
 

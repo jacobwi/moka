@@ -2,6 +2,8 @@
 
 #endregion
 
+using MokaServices.Shared.Entities;
+
 namespace MokaServices.AuthenticationService.Domain.Entities;
 
 public class BaseRole : VersionedBaseEntity

@@ -1,0 +1,6 @@
+@BytemarksService.Api_HostAddress = http://localhost:5217
+
+GET {{BytemarksService.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
