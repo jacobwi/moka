@@ -22,6 +22,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MokaServices.Shared", "src\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MokaServices.ApiGateway", "src\MokaServices.ApiGateway\MokaServices.ApiGateway.csproj", "{228BF31A-0DA3-47C9-86C9-1640CF540BF8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BytemarksService", "BytemarksService", "{25B92B1F-491A-4AC8-A7B5-3385BFF9DAEF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BytemarksService.Tests", "BytemarksService.Tests", "{B9090F0A-5E6E-43F0-BE81-A2312080D8A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteBookmarks.Core", "src\Bytemarks\ByteBookmarks.Core\ByteBookmarks.Core.csproj", "{9BDC6072-6F1D-45D1-8E05-744D3B8B0327}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteBookmarks.Application", "src\Bytemarks\ByteBookmarks.Application\ByteBookmarks.Application.csproj", "{FB79BAA2-D42A-42C7-A05C-1A9DF6C2029C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteBookmarks.Infrastructure", "src\Bytemarks\ByteBookmarks.Infrastructure\ByteBookmarks.Infrastructure.csproj", "{A78FED14-A663-4246-83E1-1E48703CCB05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteBookmarks.Server", "src\Bytemarks\ByteBookmarks.Server\ByteBookmarks.Server.csproj", "{694A1A26-B0AF-4810-BDE1-25B8B4DB30E5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +47,10 @@ Global
 		{42BB4BDD-AAFC-4415-91C0-C66577347B2E} = {64F07923-6A9F-405E-BF74-69F02291EBB8}
 		{9CD0DD81-C7B9-42BF-AE5C-D02615DF7995} = {64F07923-6A9F-405E-BF74-69F02291EBB8}
 		{12AF2F5C-79EE-4096-BEF8-C83D29A2C712} = {64F07923-6A9F-405E-BF74-69F02291EBB8}
+		{9BDC6072-6F1D-45D1-8E05-744D3B8B0327} = {25B92B1F-491A-4AC8-A7B5-3385BFF9DAEF}
+		{FB79BAA2-D42A-42C7-A05C-1A9DF6C2029C} = {25B92B1F-491A-4AC8-A7B5-3385BFF9DAEF}
+		{A78FED14-A663-4246-83E1-1E48703CCB05} = {25B92B1F-491A-4AC8-A7B5-3385BFF9DAEF}
+		{694A1A26-B0AF-4810-BDE1-25B8B4DB30E5} = {25B92B1F-491A-4AC8-A7B5-3385BFF9DAEF}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{F68E4F92-29C8-4F50-853B-A78BF15E7FF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -73,5 +89,21 @@ Global
 		{228BF31A-0DA3-47C9-86C9-1640CF540BF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{228BF31A-0DA3-47C9-86C9-1640CF540BF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{228BF31A-0DA3-47C9-86C9-1640CF540BF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BDC6072-6F1D-45D1-8E05-744D3B8B0327}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BDC6072-6F1D-45D1-8E05-744D3B8B0327}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BDC6072-6F1D-45D1-8E05-744D3B8B0327}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BDC6072-6F1D-45D1-8E05-744D3B8B0327}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB79BAA2-D42A-42C7-A05C-1A9DF6C2029C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB79BAA2-D42A-42C7-A05C-1A9DF6C2029C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB79BAA2-D42A-42C7-A05C-1A9DF6C2029C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB79BAA2-D42A-42C7-A05C-1A9DF6C2029C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A78FED14-A663-4246-83E1-1E48703CCB05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A78FED14-A663-4246-83E1-1E48703CCB05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A78FED14-A663-4246-83E1-1E48703CCB05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A78FED14-A663-4246-83E1-1E48703CCB05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{694A1A26-B0AF-4810-BDE1-25B8B4DB30E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{694A1A26-B0AF-4810-BDE1-25B8B4DB30E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{694A1A26-B0AF-4810-BDE1-25B8B4DB30E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{694A1A26-B0AF-4810-BDE1-25B8B4DB30E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
