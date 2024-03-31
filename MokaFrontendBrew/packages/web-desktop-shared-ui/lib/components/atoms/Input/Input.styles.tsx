@@ -1,47 +1,41 @@
 export const inputStyles = {
-  base: 'block w-full border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2',
+  base: "block w-full px-4 py-2 text-base transition-all duration-300 ease-in-out shadow-sm focus:outline-none",
   props: {
-    // Type for text, password, email, number, etc.
-    type: {
-      text: '', // Default 'text' type generally needs no extra styling
-      password: '',
-      email: '',
+    variant: {
+      classic:
+        "border-2 border-gray-300 rounded-md hover:border-gray-400 focus:border-black focus:ring-1 focus:ring-black focus:ring-opacity-50",
+      underline:
+        "border-0 border-b-2 border-gray-300 hover:border-gray-400 focus:border-b-2 focus:border-black",
+      floating:
+        "border-0 border-b-2 border-gray-300 bg-transparent pt-4 hover:border-gray-400 focus:border-b-2 focus:border-black",
+      borderless: "border-none hover:bg-gray-100 focus:bg-gray-200",
+      pill: "border-2 border-gray-300 rounded-full hover:border-gray-400 focus:border-black focus:ring-1 focus:ring-black focus:ring-opacity-50",
+      neumorphic:
+        "bg-gray-100 rounded-lg shadow focus:shadow-md focus:border-gray-400",
     },
-    // Size variations
-    size: {
-      sm: 'px-2 py-1 text-sm',
-      md: 'px-3 py-2',
-      lg: 'px-4 py-3 text-lg',
-    },
-    // Visual state variations
     state: {
-      default: 'border-gray-300 focus:ring-indigo-500 focus:border-indigo-500',
-      success: 'border-emerald-500 focus:ring-emerald-500 focus:border-emerald-500',
-      error: 'border-red-500 focus:ring-red-500 focus:border-red-500',
+      default: "",
+      success:
+        "border-green-500 focus:border-green-600 focus:ring-1 focus:ring-green-500",
+      error:
+        "border-red-500 focus:border-red-600 focus:ring-1 focus:ring-red-500",
     },
-    // Rounded variations
-    rounded: {
-      sm: 'rounded-sm',
-      md: 'rounded-md',
-      lg: 'rounded-lg',
-      full: 'rounded-full',
+    size: {
+      sm: "px-3 py-1.5 text-sm",
+      md: "px-4 py-2",
+      lg: "px-5 py-2.5 text-lg",
     },
-    // Disabled Styles
-    disabled: {
-      'opacity-50 cursor-not-allowed bg-gray-100': true,
-    },
-    // Icon integration
     icon: {
-      // Size variations (adjust values if needed)
-      sm: 'w-4 h-4',
-      md: 'w-5 h-5',
-      lg: 'w-6 h-6',
-      // Color variations
-      primary: 'text-indigo-500',
-      error: 'text-red-500',
-      // Position variations
-      left: 'mr-2',
-      right: 'ml-2',
+      size: "w-5 h-5",
+      color: {
+        default: "text-black", // Primary icon color changed to black
+        success: "text-green-500",
+        error: "text-red-500",
+      },
+      position: {
+        left: "absolute inset-y-0 left-0 flex items-center pl-3",
+        right: "absolute inset-y-0 right-0 flex items-center pr-3",
+      },
     },
   },
 };

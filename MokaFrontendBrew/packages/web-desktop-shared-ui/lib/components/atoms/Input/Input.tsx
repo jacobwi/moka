@@ -1,58 +1,51 @@
-// // InputText.tsx
+import React from "react";
+import { inputStyles } from "./Input.styles";
+import { twMerge } from "tailwind-merge";
+import IconWrapper from "../IconWrapper/IconWrapper";
+import type { IconBaseProps } from "../IconWrapper/IconWrapper";
 
-// import React from 'react';
-// import { twMerge } from 'tailwind-merge';
-// import { inputStyles } from './Input.styles';
-// import IconWrapper from '../IconWrapper/IconWrapper'; // Adjust the import path as necessary
-// import { isObject } from '@moka/ui-utils';
+type InputStyleProps = (typeof inputStyles)["props"];
 
-// type InputStyleProps = (typeof inputStyles)['props'];
+type InputProps = {
+  [K in keyof InputStyleProps]?: keyof InputStyleProps[K];
+} & React.InputHTMLAttributes<HTMLInputElement> & {
+    iconName?: string;
+    iconProps?: IconBaseProps;
+  };
 
-// // Omit the 'size' and any other conflicting props from the native input attributes
-// type OmittedInputHTMLAttributes = Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'>;
+const Input: React.FC<InputProps> = ({
+  className,
+  iconName,
+  iconProps = {},
+  variant = "classic", // Default variant
+  ...rest
+}) => {
+  const variantClasses = inputStyles.props.variant[variant] || "";
+  const iconClasses = iconName
+    ? `${inputStyles.props.icon.size[iconProps.size || "md"]} ${inputStyles.props.icon.color[rest.state || "default"]}`
+    : "";
 
-// type InputProps = {
-//   [K in keyof InputStyleProps]?: keyof InputStyleProps[K];
-// } & OmittedInputHTMLAttributes & {
-//     iconName?: string;
-//     iconPosition?: 'left' | 'right';
-//     iconProps?: React.ComponentProps<typeof IconWrapper>; // Assuming IconWrapper accepts props
-//   };
+  const inputClasses = twMerge(inputStyles.base, variantClasses, className);
 
-// const InputText: React.FC<InputProps> = ({
-//   className,
-//   iconName,
-//   iconPosition = 'left',
-//   iconProps = {},
-//   ...rest
-// }) => {
-//   const dynamicClassNames = Object.keys(rest)
-//     .filter((key) => key in inputStyles.props && key !== 'icon')
-//     .map((key) => {
-//       const safeKey = key as keyof InputStyleProps;
-//       const propValue = rest[safeKey];
-//       const styleVariant = inputStyles.props[safeKey];
+  return (
+    <div className={`relative ${variant === "floating" ? "mt-2" : ""}`}>
+      {iconName && (
+        <div
+          className={`absolute inset-y-0 ${iconProps.position === "right" ? "right-0 pr-3" : "left-0 pl-3"} flex items-center`}
+        >
+          <IconWrapper
+            iconName={iconName}
+            {...iconProps}
+            className={iconClasses}
+          />
+        </div>
+      )}
+      <input
+        className={`${inputClasses} ${iconName ? (iconProps.position === "right" ? "pr-10" : "pl-10") : ""}`}
+        {...rest}
+      />
+    </div>
+  );
+};
 
-//       if (typeof propValue === 'string' && isObject(styleVariant)) {
-//         return styleVariant[propValue as keyof typeof styleVariant];
-//       }
-//       return null;
-//     })
-//     .filter(Boolean);
-
-//   const containerClasses = twMerge(
-//     'flex items-center',
-//     iconPosition === 'left' ? 'flex-row' : 'flex-row-reverse',
-//     className
-//   );
-//   const inputClasses = twMerge(inputStyles.base, ...dynamicClassNames);
-
-//   return (
-//     <div className={containerClasses}>
-//       {iconName && <IconWrapper iconName={iconName} {...iconProps} />}
-//       <input className={inputClasses} {...rest} />
-//     </div>
-//   );
-// };
-
-// export default InputText;
+export { Input, type InputProps, inputStyles };

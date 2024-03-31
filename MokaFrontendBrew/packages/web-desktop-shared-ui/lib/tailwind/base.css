@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Light theme */
+:root {
+  --input-border: #ccc;
+  --input-focus-border: black;
+  --input-focus-ring: rgba(0, 0, 0, 0.5);
+  --input-error: #ff6b6b;
+  --input-success: #51cf66;
+}
+
+/* Dark theme */
+[data-theme="dark"] {
+  --input-border: #555;
+  --input-focus-border: white;
+  --input-focus-ring: rgba(255, 255, 255, 0.5);
+  --input-error: #ff6b6b;
+  --input-success: #51cf66;
+}
