@@ -12,6 +12,7 @@
       "name": "🎒 Microservices -  Root",
       "path": "./MokaServices"
     },
+
     {
       "name": "🦠 Microservices - Development",
       "path": "./MokaServices/src/"

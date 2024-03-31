@@ -1,44 +1,50 @@
 export const buttonStyles = {
-  base: 'inline-flex items-center px-4 py-2 border font-medium rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2',
+  base: "inline-flex items-center justify-center px-4 py-2 border font-medium text-sm transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 shadow-sm rounded-md",
   props: {
     variant: {
       primary:
-        'bg-indigo-600 hover:bg-indigo-700 text-white border-transparent focus:ring-indigo-500',
+        "bg-black text-white hover:bg-gray-900 border-transparent focus:ring-gray-700 hover:shadow-lg hover:shadow-gray-800/50",
       secondary:
-        'text-indigo-600 bg-white hover:bg-indigo-50 border-indigo-600 focus:ring-indigo-500',
+        "bg-white/80 text-black hover:bg-white/90 border-gray-300 focus:ring-gray-300 backdrop-blur-sm hover:shadow-lg hover:shadow-gray-300/50",
       success:
-        'bg-emerald-600 hover:bg-emerald-700 text-white border-transparent focus:ring-emerald-500',
-      danger: 'bg-red-600 hover:bg-red-700 text-white border-transparent focus:ring-red-500',
+        "bg-green-600 text-white hover:bg-green-700 border-transparent focus:ring-green-500 hover:shadow-lg hover:shadow-green-700/50",
+      danger:
+        "bg-red-600 text-white hover:bg-red-700 border-transparent focus:ring-red-500 hover:shadow-lg hover:shadow-red-700/50",
+      info: "bg-blue-600 text-white hover:bg-blue-700 border-transparent focus:ring-blue-500 hover:shadow-lg hover:shadow-blue-700/50",
+      warning:
+        "bg-yellow-500 text-black hover:bg-yellow-600 border-transparent focus:ring-yellow-400 hover:shadow-lg hover:shadow-yellow-600/50",
+      light:
+        "bg-gray-100 text-gray-800 hover:bg-gray-200 border-transparent focus:ring-gray-300 hover:shadow-lg hover:shadow-gray-300/50",
     },
     size: {
-      sm: 'text-sm',
-      md: 'text-base',
-      lg: 'text-lg',
+      sm: "px-3 py-1.5 text-xs",
+      md: "px-4 py-2 text-sm",
+      lg: "px-5 py-2.5 text-base",
     },
     rounded: {
-      sm: 'rounded-sm',
-      md: 'rounded-md',
-      lg: 'rounded-lg',
-      full: 'rounded-full',
+      none: "rounded-none",
+      sm: "rounded-sm",
+      md: "rounded-md",
+      lg: "rounded-lg",
+      full: "rounded-full",
     },
     hover: {
-      light: 'hover:bg-indigo-50',
-      elevate: 'hover:shadow-lg',
+      light: "hover:bg-gray-50",
+      elevate: "hover:-translate-y-1",
     },
     focus: {
-      strong: 'focus:ring-4',
-      offset: 'focus:ring-offset-4',
+      strong: "focus:ring-4",
+      offset: "focus:ring-offset-4",
     },
     icon: {
-      default: 'w-5 h-5', // Width and height for the icon
+      default: "w-4 h-4",
       color: {
-        primary: 'text-red-400', // Color for primary variant
-        secondary: 'text-yellow-600', // Color for secondary variant
+        primary: "text-white",
+        secondary: "text-black",
       },
-      // Define margin variations or other styles if needed
       margin: {
-        left: 'mr-2', // Margin right when icon is on the left
-        right: 'ml-2', // Margin left when icon is on the right
+        left: "mr-2",
+        right: "ml-2",
       },
     },
   },
