@@ -9,10 +9,10 @@ type ButtonStyleProps = (typeof buttonStyles)["props"];
 type ButtonProps = {
   [K in keyof ButtonStyleProps]?: keyof ButtonStyleProps[K];
 } & React.ButtonHTMLAttributes<HTMLButtonElement> & {
-    iconName?: string; // Existing icon name prop
-    iconPosition?: "left" | "right"; // New icon position prop
-    iconProps: IconBaseProps;
-  };
+  iconName?: string; // Existing icon name prop
+  iconPosition?: "left" | "right"; // New icon position prop
+  iconProps?: IconBaseProps;
+};
 
 const Button: React.FC<ButtonProps> = ({
   children,
@@ -47,7 +47,7 @@ const Button: React.FC<ButtonProps> = ({
       // Access the nested icon styles safely using type assertion
       const iconStyleVariant =
         buttonStyles.props.icon[
-          iconProp as keyof typeof buttonStyles.props.icon
+        iconProp as keyof typeof buttonStyles.props.icon
         ];
       if (
         isObject(iconStyleVariant) &&

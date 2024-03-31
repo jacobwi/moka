@@ -1,5 +1,5 @@
 export const buttonStyles = {
-  base: "inline-flex items-center justify-center px-4 py-2 border font-medium text-sm transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 shadow-sm rounded-md",
+  base: "bg-blackinline-flex items-center justify-center px-4 py-2 border font-medium text-sm transition duration-300 ease-in-out transform focus:outline-none focus:ring-2 focus:ring-offset-2 shadow-sm rounded-md",
   props: {
     variant: {
       primary:
