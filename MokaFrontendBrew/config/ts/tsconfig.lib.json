@@ -1,0 +1,18 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "../../packages/web-desktop-shared-ui/dist",
+    "jsx": "react-jsx",
+    "composite": true // Signals this is a reference-based project
+  },
+  "types": ["vitest/globals"],
+  "include": [
+    "../../packages/web-desktop-shared-ui/lib/**/*.ts",
+    "../../packages/web-desktop-shared-ui/lib/**/*.tsx"
+  ],
+  "exclude": [
+    "../../packages/web-desktop-shared-ui/node_modules",
+    "../../packages/web-desktop-shared-ui/dist",
+    "../../packages/web-desktop-shared-ui/src/__tests__"
+  ]
+}

@@ -1,0 +1,31 @@
+// // InputText.stories.tsx
+
+// import { Meta, StoryObj } from '@storybook/react';
+// import InputText from './Input';
+// import { inputStyles } from './Input.styles';
+// import { extractDynamicPropOptions, generateDynamicArgTypes } from '@moka/ui-utils'; // Adjust the import path as needed
+
+// // Extract dynamic prop options from styles
+// const propOptions = extractDynamicPropOptions(inputTextStyles);
+// const dynamicArgTypes = generateDynamicArgTypes(propOptions);
+
+// const meta: Meta<typeof InputText> = {
+//   title: 'Form/Controls/InputText',
+//   component: InputText,
+//   argTypes: {
+//     ...dynamicArgTypes, // Spread in dynamically generated argTypes
+//   },
+// };
+
+// export default meta;
+
+// export const Default: StoryObj<typeof InputText> = {
+//   render: (args) => <InputText {...args} />,
+//   args: {
+//     placeholder: 'Enter text here...',
+//     variant: 'outline', // Default variant
+//     size: 'md', // Default size
+//   },
+// };
+
+// // Additional stories can be defined similarly

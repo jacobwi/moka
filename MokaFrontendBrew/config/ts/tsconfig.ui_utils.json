@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": "../../packages/ui-utils",
+    "rootDir": "../../packages/ui-utils/src",
+    "outDir": "../../packages/ui-utils/lib",
+    "composite": true // Signals this is a reference-based project
+  },
+  "types": ["vitest/globals"],
+  "include": ["../../packages/ui-utils/src/**/*.ts"],
+  "exclude": [
+    "../../packages/ui-utils/node_modules",
+    "../../packages/ui-utils/dist",
+    "../../packages/ui-utils/src/__tests__"
+  ]
+}

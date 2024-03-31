@@ -1,0 +1,17 @@
+{
+  "name": "@moka/ui-utils",
+  "version": "0.0.1-pre",
+  "description": "",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p ../../config/ts/tsconfig.ui_utils.json"
+  },
+  "devDependencies": {
+    "@storybook/types": "^8.0.5",
+    "@types/node": "^20.12.2"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,10 +1,12 @@
 {
- "extends": "./config/ts/tsconfig.base.json",
- "compilerOptions": {
-    "baseUrl": ".", // Add this if not already present
+  "extends": "./config/ts/tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
     "paths": {
       "@moka/core": ["packages/core/src"],
-      "@moka/errors": ["packages/errors/src"] 
+      "@moka/errors": ["packages/errors/src"],
+      "@moka/ui-utils": ["packages/ui-utils/src"],
+      "@moka/web-desktop-shared-ui": ["packages/web-desktop-shared-ui/src"]
     }
   }
 }
