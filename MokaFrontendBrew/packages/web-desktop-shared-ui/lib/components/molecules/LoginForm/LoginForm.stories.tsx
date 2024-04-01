@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import LoginForm from './LoginForm';
+import { fn } from '@storybook/test';
 
 const meta: Meta<typeof LoginForm> = {
     title: 'Components/LoginForm',
@@ -11,6 +12,10 @@ const meta: Meta<typeof LoginForm> = {
             </div>
         ),
     ],
+    args: {
+        onForgotPassword: fn()
+    }
+    ,
     argTypes: {
         variant: {
             control: { type: 'select' },
@@ -80,3 +85,4 @@ export const WithError: StoryObj<typeof LoginForm> = {
         error: 'Invalid username or password',
     },
 };
+

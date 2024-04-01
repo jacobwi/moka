@@ -7,6 +7,8 @@ export const loginFormStyles = {
     errorIcon: "text-red-500 text-lg",
     errorMessage: "text-red-500 text-sm flex-1",
     submitButton: "w-full mt-8 py-3 text-white bg-black hover:bg-gray-800 rounded-lg font-medium shadow transition-colors duration-300 ease-in-out",
+    rememberMe: "flex items-center mt-4", // Style for the Remember Me checkbox
+    forgotPassword: "text-sm text-blue-600 hover:text-blue-800 cursor-pointer mt-4", // Style for the Forgot Password link
     variants: {
         default: "max-w-md",
         compact: "max-w-sm space-y-4 p-4",
