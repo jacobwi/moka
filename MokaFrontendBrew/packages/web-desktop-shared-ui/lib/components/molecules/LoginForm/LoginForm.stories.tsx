@@ -3,7 +3,7 @@ import LoginForm from './LoginForm';
 import { fn } from '@storybook/test';
 
 const meta: Meta<typeof LoginForm> = {
-    title: 'Components/LoginForm',
+    title: 'Molecules/LoginForm',
     component: LoginForm,
     decorators: [
         (Story) => (

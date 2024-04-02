@@ -3,7 +3,7 @@ import RegisterForm from "./RegisterForm";
 import { fn } from "@storybook/test";
 
 const meta: Meta<typeof RegisterForm> = {
-  title: "Components/RegisterForm",
+  title: "Molecules/RegisterForm",
   component: RegisterForm,
   decorators: [
     (Story) => (
