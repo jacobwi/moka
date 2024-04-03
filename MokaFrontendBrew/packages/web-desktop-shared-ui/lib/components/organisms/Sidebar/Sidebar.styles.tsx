@@ -7,7 +7,7 @@ export const sidebarStyles = {
         border: "border-b border-transparent hover:border-gray-300",  // Only show border on hover for a cleaner look
         variants: {
             default: "text-gray-600 hover:text-gray-800",
-            active: "text-gray-900 font-medium bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 shadow-lg rounded-md",  // Vibrant gradient for active items
+            active: `bg-gradient-to-l from-blue-400 to-blue-500 shadow-lg rounded-md`, // Use a gradient that suits your preference
             inactive: "hover:text-gray-800",
             highlighted: "text-gray-800 hover:bg-gray-200 rounded-lg",  // Rounded corners for a softer look
             disabled: "text-gray-400 cursor-not-allowed opacity-50",
