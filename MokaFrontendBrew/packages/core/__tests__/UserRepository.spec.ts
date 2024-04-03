@@ -28,7 +28,7 @@ describe("User Management", () => {
     // Then it should return the corresponding user
 
     await expect(
-      userRepository.findAsync("@43", UserLookupType.Id)
+      userRepository.findAsync("@43", UserLookupType.Id),
     ).rejects.toThrow(); // Red phase assertion
   });
 
@@ -42,7 +42,7 @@ describe("User Management", () => {
         name: "John Doe",
         email: "johnd1@td.local",
         id: nanoid(),
-      })
+      }),
     ).rejects.toThrow(); // Red phase assertion
   });
 });

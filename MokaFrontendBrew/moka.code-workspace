@@ -30,7 +30,6 @@
     },
   ],
   "settings": {
-    "workbench.colorCustomizations": {}
+    "workbench.colorCustomizations": {},
   },
-
 }

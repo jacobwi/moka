@@ -1,22 +1,38 @@
-import { ArgTypes } from '@storybook/types';
+import { ArgTypes } from "@storybook/types";
 /**
  * Represents the type of control for a storybook component.
  */
-type ControlType = 'object' | 'boolean' | 'check' | 'inline-check' | 'radio' | 'inline-radio' | 'select' | 'multi-select' | 'number' | 'range' | 'file' | 'color' | 'date' | 'text';
+type ControlType =
+  | "object"
+  | "boolean"
+  | "check"
+  | "inline-check"
+  | "radio"
+  | "inline-radio"
+  | "select"
+  | "multi-select"
+  | "number"
+  | "range"
+  | "file"
+  | "color"
+  | "date"
+  | "text";
 /**
  * Represents the metadata for a component prop.
  */
 type PropMetadata = {
-    description: string;
-    category?: string;
-    defaultValue?: string;
-    control?: ControlType | {
+  description: string;
+  category?: string;
+  defaultValue?: string;
+  control?:
+    | ControlType
+    | {
         type: ControlType;
-    };
-    options?: string[];
-    table?: {
-        category?: string;
-    };
+      };
+  options?: string[];
+  table?: {
+    category?: string;
+  };
 };
 /**
  * Metadata for component props.
@@ -34,12 +50,21 @@ declare function isObject(value: unknown): value is Record<string, unknown>;
  * @param styles - The styles object from which to extract dynamic property options.
  * @returns An object containing the dynamic property options.
  */
-declare function extractDynamicPropOptions(styles: Record<string, unknown>): Record<string, string[]>;
+declare function extractDynamicPropOptions(
+  styles: Record<string, unknown>,
+): Record<string, string[]>;
 /**
  * Generates dynamic arg types for Storybook based on the provided options.
  * @param options - The options object containing the possible values for each argument.
  * @returns The generated arg types object.
  */
-declare function generateDynamicArgTypes(options: Record<string, string[]>): ArgTypes;
-export { extractDynamicPropOptions, generateDynamicArgTypes, propMetadata, isObject };
+declare function generateDynamicArgTypes(
+  options: Record<string, string[]>,
+): ArgTypes;
+export {
+  extractDynamicPropOptions,
+  generateDynamicArgTypes,
+  propMetadata,
+  isObject,
+};
 //# sourceMappingURL=storybookHelpers.d.ts.map

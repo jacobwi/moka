@@ -9,7 +9,7 @@ export class UserRepository implements IUserRepository {
   }
   async findAsync(
     id: string,
-    lookupType: UserLookupType
+    lookupType: UserLookupType,
   ): Promise<User | null> {
     return Promise.reject(new Error("User not found"));
   }

@@ -20,7 +20,10 @@ export function co<T>(
   {
     variants,
     defaultVariants,
-  }: { variants: ClassVariantsConfig<T>; defaultVariants: DefaultClassVariants<T> }
+  }: {
+    variants: ClassVariantsConfig<T>;
+    defaultVariants: DefaultClassVariants<T>;
+  },
 ) {
   return (variantProps: Partial<T>): string => {
     const combinedClasses = [baseClasses]; // Start with the base classes
@@ -37,6 +40,6 @@ export function co<T>(
       }
     });
 
-    return combinedClasses.join(' '); // Combine all classes into a single string
+    return combinedClasses.join(" "); // Combine all classes into a single string
   };
 }

@@ -21,7 +21,7 @@ export default defineConfig({
       "@moka/ui-utils": resolve(__dirname, "../ui-utils/src"),
       "@moka/web-desktop-shared-ui": resolve(
         __dirname,
-        "packages/web-desktop-shared-ui/src"
+        "packages/web-desktop-shared-ui/src",
       ),
       // Add more aliases as needed
     },
@@ -45,7 +45,7 @@ export default defineConfig({
             // The absolute path to the entry file
             // lib/nested/foo.ts becomes /project/lib/nested/foo.ts
             fileURLToPath(new URL(file, import.meta.url)),
-          ])
+          ]),
       ),
       output: {
         assetFileNames: "assets/[name][extname]",

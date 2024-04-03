@@ -14,7 +14,7 @@ type VariantsConfig<T> = {
 export function av<T>(
   baseObject: T,
   variantsConfig: VariantsConfig<T>,
-  variantProps: Partial<T>
+  variantProps: Partial<T>,
 ): T {
   return Object.entries(variantProps).reduce<T>((result, [prop, value]) => {
     // Ensure the value is converted to a string to match the key in variantsConfig
@@ -22,10 +22,12 @@ export function av<T>(
     const variantFunction = variantsConfig[prop as keyof T]?.[variantValue];
 
     // Check if variantFunction is indeed a function before invoking it
-    if (typeof variantFunction === 'function') {
+    if (typeof variantFunction === "function") {
       return variantFunction(result);
     } else {
-      console.warn(`Variant function for prop "${prop}" with value "${variantValue}" not found.`);
+      console.warn(
+        `Variant function for prop "${prop}" with value "${variantValue}" not found.`,
+      );
       return result;
     }
   }, baseObject);

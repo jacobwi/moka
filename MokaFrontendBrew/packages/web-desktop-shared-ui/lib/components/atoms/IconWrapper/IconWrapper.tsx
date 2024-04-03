@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import * as Icons from 'react-icons/fa';
-import { IconBaseProps } from 'react-icons/lib';
+import React, { useEffect, useState } from "react";
+import * as Icons from "react-icons/fa";
+import { IconBaseProps } from "react-icons/lib";
 
 // Define a type that represents the Icons import with an index signature
 type IconsType = {

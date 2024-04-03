@@ -23,7 +23,7 @@ instance.interceptors.request.use(
       config.headers.clear(); // Initialize headers as an empty object
     }
     return config;
-  }
+  },
   // Error handling for request could go here
 );
 
@@ -35,13 +35,13 @@ instance.interceptors.response.use(
     if (error.response) {
       throw new APIError(
         error.response.data.message || "API Error",
-        error.response.status
+        error.response.status,
       );
     } else {
       // Network error or something else
       throw new APIError("Network Error", 500);
     }
-  }
+  },
 );
 
 export default instance;
