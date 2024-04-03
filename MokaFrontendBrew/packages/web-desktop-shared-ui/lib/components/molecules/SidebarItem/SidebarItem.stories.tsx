@@ -1,12 +1,12 @@
-import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import { FiHome } from 'react-icons/fi';
-import SidebarItem from './SidebarItem';
-import { SidebarItemProps } from './SidebarItem';
+import SidebarItem, { SidebarItemProps } from './SidebarItem';
+import { fn } from '@storybook/test';
 
 export default {
     title: 'Molecules/SidebarItem',
     component: SidebarItem,
+    args: { onClick: fn() },
 } as Meta<typeof SidebarItem>;
 
 export const Default: StoryObj<SidebarItemProps> = {

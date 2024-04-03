@@ -9,6 +9,14 @@
       "path": "./MokaFrontendBrew"
     },
     {
+      "name": "🐥 Frontend - Bytemarks",
+      "path": "./MokaFrontendBrew/apps/bytemarks"
+    },
+    {
+      "name": "🐥 Frontend [LIB] - Shared Web Desktop",
+      "path": "./MokaFrontendBrew/packages/web-desktop-shared-ui"
+    },
+    {
       "name": "🎒 Microservices -  Root",
       "path": "./MokaServices"
     },
