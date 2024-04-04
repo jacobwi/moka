@@ -1,4 +1,3 @@
-import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import { FiHome, FiSettings, FiLogOut } from "react-icons/fi";
 import { Sidebar, SidebarProps } from "./Sidebar";

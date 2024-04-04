@@ -17,6 +17,10 @@
       "path": ".",
     },
     {
+      "name": "✨ Bytemark",
+      "path": "./apps/bytemarks",
+    },
+    {
       "name": "🌍 Core",
       "path": "./packages/core",
     },

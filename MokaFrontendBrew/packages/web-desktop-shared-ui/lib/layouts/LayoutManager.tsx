@@ -66,4 +66,4 @@ const LayoutManager: React.FC<LayoutManagerProps> = ({
   }
 };
 
-export default LayoutManager;
+export { LayoutManager, type LayoutManagerProps, type LayoutType };

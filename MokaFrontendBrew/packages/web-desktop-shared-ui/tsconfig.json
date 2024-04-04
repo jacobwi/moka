@@ -24,6 +24,6 @@
       "@moka/ui-utils": ["../ui-utils/src"]
     }
   },
-  "include": ["src", "lib"],
+  "include": ["lib"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

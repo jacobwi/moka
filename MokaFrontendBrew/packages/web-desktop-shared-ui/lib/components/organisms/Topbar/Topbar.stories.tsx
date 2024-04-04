@@ -1,4 +1,3 @@
-import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import { Topbar, TopbarProps } from "./Topbar";
 import { FiHome, FiSettings, FiUser } from "react-icons/fi";
