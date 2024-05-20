@@ -1,0 +1,60 @@
+{
+  "manifest_version": 3,
+  "name": "__MSG_extName__",
+  "short_name": "__MSG_appName__",
+  "description": "__MSG_extDesc__",
+  "version": "1.0",
+  "default_locale": "en",
+  "author": "Jacob W.",
+  "homepage_url": "https://jacobwi.io",
+  "action": {
+    "default_icon": {
+      "16": "assets/logos/favicon-browser.png",
+      "48": "assets/logos/favicon-browser.png",
+      "128": "assets/logos/favicon-browser.png"
+    },
+    "default_title": "__MSG_extName__",
+    "default_popup": "src/pages/popup/index.html"
+  },
+  "background": {
+    "service_worker": "src/pages/background/index.ts",
+    "type": "module",
+    "persistent": false
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; style-src 'self' 'unsafe-inline'"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*/*", "http://*/*"],
+      "js": ["src/pages/content/index.tsx"],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["contentStyle.css"],
+      "matches": []
+    }
+  ],
+  "icons": {
+    "16": "assets/logos/favicon-browser.png",
+    "48": "assets/logos/favicon-browser.png",
+    "128": "assets/logos/favicon-browser.png"
+  },
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "bookmarks",
+    "contextMenus",
+    "storage",
+    "unlimitedStorage",
+    "clipboardRead",
+    "clipboardWrite",
+    "idle",
+    "alarms",
+    "scripting",
+    "offscreen"
+  ],
+  "host_permissions": ["http://*/*", "https://*/*"]
+}

@@ -1,21 +1,43 @@
 {
-  "name": "bytemarks",
+  "name": "bytebookmarks",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
+
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-icons": "^5.0.1",
-    "react-router-dom": "^6.22.3"
+    "web": "cd web && yarn dev",
+    "chrome-extension": "cd chrome-extension && yarn dev",
+    "shared": "cd shared && yarn dev",
+    "lint": "eslint 'web/src/**/*.{js,jsx,ts,tsx}' 'shared/src/**/*.{js,jsx,ts,tsx}' 'chrome-extension/src/**/*.{js,jsx,ts,tsx}'",
+    "pretest": "tsc jest.config.ts --outDir ./ --esModuleInterop",
+    "test": "jest",
+    "pretty": "prettier --write ."
   },
   "devDependencies": {
-    "@types/react-router-dom": "^5.3.3"
-  }
+    "@tailwindcss/typography": "^0.5.10",
+
+    "@vitejs/plugin-react": "^4.2.1",
+    "@typescript-eslint/eslint-plugin": "^7.2.0",
+    "@typescript-eslint/parser": "^7.2.0",
+    "@types/node": "^20.11.26",
+    "cross-env": "^7.0.3",
+    "autoprefixer": "^10.4.18",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "identity-obj-proxy": "^3.0.0",
+    "postcss": "^8.4.35",
+    "prettier": "^3.2.5",
+    "tailwindcss": "^3.4.1",
+    "ts-jest": "^29.1.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.2"
+
+  },
+  "browserslist": [
+    "last 2 versions",
+    "ie >= 11",
+    "defaults"
+  ],
+  "packageManager": "pnpm@8.15.5+sha256.4b4efa12490e5055d59b9b9fc9438b7d581a6b7af3b5675eb5c5f447cee1a589"
 }

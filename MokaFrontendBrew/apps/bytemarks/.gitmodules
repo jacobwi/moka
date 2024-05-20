@@ -1,0 +1,9 @@
+[submodule "web"]
+	path = web
+	url = https://git.midmoka.me/Self-Development/bytebookmarks-web.git
+[submodule "shared"]
+	path = shared
+	url = https://git.midmoka.me/Self-Development/bytebookmarks-shared.git
+[submodule "chrome-extension"]
+	path = chrome-extension
+	url = https://git.midmoka.me/Self-Development/bytebookmarks-chrome-extension.git

@@ -1,0 +1,13 @@
+{
+  "appName": {
+    "message": "Bytebookmarks"
+  },
+  "extName": {
+    "message": "Bytebookmarks - Free Bookmarks Manager",
+    "description": "Extension name, MUST be less than 40 characters (Safari restriction)"
+  },
+  "extDesc": {
+    "message": "A secure and free bookmarks manager for all of your devices.",
+    "description": "Extension description"
+  }
+}

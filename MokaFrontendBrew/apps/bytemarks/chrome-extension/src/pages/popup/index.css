@@ -1,0 +1,51 @@
+body {
+  min-height: 90vh; /* Minimum height to fill the viewport */
+  width: 500px;
+  margin: 0 auto; /* Center the content vertically */
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-y: auto; /* Ensure vertical scrolling is available if needed */
+  overflow-x: hidden; /* Hide horizontal scrolling */
+}
+
+/* Custom scrollbar styles */
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--secondary) var(--primary);
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 15px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--primary);
+  border-radius: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--secondary);
+  border-radius: 14px;
+  border: 3px solid var(--primary);
+}
+
+.spinner {
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border-top-color: #4fa94d;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,317 @@
+/* Light Theme */
+[data-theme="light"] {
+  --theme-bg: #f0f0f0;
+  --theme-text: #333;
+  --theme-error: #ff0000;
+  --theme-accent: #007bff;
+  --theme-accent-hover: #0056b3;
+  --theme-button-bg: #007bff;
+  --theme-button-text: #ffffff;
+  --theme-card-bg: #ffffff;
+  --theme-border: #e0e0e0;
+  --theme-input-bg: #ffffff;
+  --theme-input-text: #333;
+  --theme-card-radius: 8px;
+  --theme-button-radius: 4px;
+  --theme-card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --theme-input-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  --theme-transition: all 0.3s ease;
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+  --theme-bg: #121212;
+  --theme-text: #e0e0e0;
+  --theme-error: #ff0000;
+
+  --theme-accent: #1db954;
+  --theme-accent-hover: #1db954d9;
+  --theme-button-bg: #1db954;
+  --theme-button-text: #121212;
+  --theme-card-bg: #1e1e1e;
+  --theme-border: #333;
+  --theme-input-bg: #333;
+  --theme-input-text: #e0e0e0;
+  --theme-card-radius: 10px;
+  --theme-button-radius: 6px;
+  --theme-card-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
+  --theme-input-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.12);
+  --theme-transition: all 0.3s ease;
+}
+
+/* Nature Theme */
+[data-theme="nature"] {
+  --theme-bg: #f7f6f2;
+  --theme-text: #385a4c;
+  --theme-error: #ff0000;
+
+  --theme-accent: #a3bc9d;
+  --theme-accent-hover: #8ca583;
+  --theme-button-bg: #a3bc9d;
+  --theme-button-text: #f7f6f2;
+  --theme-card-bg: #ffffff;
+  --theme-border: #d0d7c2;
+  --theme-input-bg: #ffffff;
+  --theme-input-text: #385a4c;
+  --theme-card-radius: 12px;
+  --theme-button-radius: 8px;
+  --theme-card-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+  --theme-input-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.08);
+  --theme-transition: all 0.3s ease;
+}
+
+/* Soft-Serenity Theme */
+[data-theme="soft-serenity"] {
+  --theme-bg: #faf8f5;
+  --theme-text: #6d6875;
+  --theme-error: #ff0000;
+
+  --theme-accent: #e5989b;
+  --theme-accent-hover: #d9828b;
+  --theme-button-bg: #e5989b;
+  --theme-button-text: #faf8f5;
+  --theme-card-bg: #fffaf6;
+  --theme-border: #ede0d4;
+  --theme-input-bg: #fffaf6;
+  --theme-input-text: #6d6875;
+  --theme-card-radius: 14px;
+  --theme-button-radius: 10px;
+  --theme-card-shadow: 0 12px 18px rgba(0, 0, 0, 0.1);
+  --theme-input-shadow: inset 0 1px 6px rgba(0, 0, 0, 0.1);
+  --theme-transition: all 0.3s ease;
+}
+[data-theme="midnight-dream"] {
+  --theme-bg: #2c3e50; /* Dark blue background */
+  --theme-text: #ecf0f1; /* Light grey text for contrast */
+  --theme-error: #ff0000;
+
+  --theme-accent: #3498db; /* Bright blue accent */
+  --theme-button-bg: #2980b9; /* Button background */
+  --theme-button-text: #ffffff; /* Button text color */
+  --theme-card-bg: #34495e; /* Darker blue card background */
+  --theme-border: #46637f; /* Blue-grey border */
+  --theme-input-bg: #34495e; /* Input field background */
+  --theme-input-text: #ecf0f1; /* Input text color */
+  --theme-card-radius: 0.5rem; /* Card border radius */
+  --theme-button-radius: 0.25rem; /* Button border radius */
+  --theme-card-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Card shadow */
+  --theme-input-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2); /* Input field shadow */
+}
+[data-theme="sunset-glow"] {
+  --theme-bg: #ffecd2; /* Peach background */
+  --theme-text: #ff8a65; /* Deep orange text */
+  --theme-error: #ff0000;
+
+  --theme-accent: #ff7043; /* Darker orange accent */
+  --theme-button-bg: #ff5722; /* Button background */
+  --theme-button-text: #ffffff; /* Button text color */
+  --theme-card-bg: #ffffff; /* Card background */
+  --theme-border: #ffccbc; /* Light orange border */
+  --theme-input-bg: #ffffff; /* Input field background */
+  --theme-input-text: #ff8a65; /* Input text color */
+  --theme-card-radius: 0.5rem; /* Card border radius */
+  --theme-button-radius: 0.25rem; /* Button border radius */
+  --theme-card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Card shadow */
+  --theme-input-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Input field shadow */
+}
+[data-theme="ocean-breeze"] {
+  --theme-bg: #e0f7fa; /* Light cyan background */
+  --theme-text: #01579b; /* Deep blue text for contrast */
+  --theme-error: #ff0000;
+
+  --theme-accent: #4dd0e1; /* Cyan accent for buttons and links */
+  --theme-button-bg: #26c6da; /* Button background */
+  --theme-button-text: #ffffff; /* Button text color */
+  --theme-card-bg: #ffffff; /* Card background */
+  --theme-border: #b2ebf2; /* Light cyan border for inputs and cards */
+  --theme-input-bg: #ffffff; /* Input field background */
+  --theme-input-text: #01579b; /* Input text color */
+  --theme-card-radius: 0.5rem; /* Card border radius */
+  --theme-button-radius: 0.25rem; /* Button border radius */
+  --theme-card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Card shadow */
+  --theme-input-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Input field shadow */
+}
+/* Urban Chic Theme */
+[data-theme="urban-chic"] {
+  --theme-bg: #1f2933; /* Dark gray background */
+  --theme-text: #f5f7fa; /* Light gray text for contrast */
+  --theme-error: #ff0000;
+
+  --theme-accent: #3b82f6; /* Vibrant blue accent */
+  --theme-accent-hover: #2563eb; /* Darker blue for hover state */
+  --theme-button-bg: #3b82f6; /* Button background */
+  --theme-button-text: #ffffff; /* Button text color */
+  --theme-card-bg: #111827; /* Slightly darker gray for card backgrounds */
+  --theme-border: #374151; /* Gray border for inputs and cards */
+  --theme-input-bg: #1f2933; /* Matching dark gray for input fields */
+  --theme-input-text: #f5f7fa; /* Light gray input text */
+  --theme-card-radius: 8px; /* Rounded corners for cards */
+  --theme-button-radius: 4px; /* Slightly rounded corners for buttons */
+  --theme-card-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for cards */
+  --theme-input-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1); /* Inner shadow for inputs */
+  --theme-transition: all 0.3s ease; /* Smooth transition for interactive elements */
+}
+/* Minimalist Rose Theme */
+[data-theme="minimalist-rose"] {
+  --theme-bg: #fff0f0; /* Soft pink background */
+  --theme-text: #b5838d; /* Muted rose text color */
+  --theme-error: #ff0000;
+
+  --theme-accent: #e5989b; /* Soft rose accent color */
+  --theme-accent-hover: #d77a8f; /* Darker rose for hover state */
+  --theme-button-bg: #e5989b; /* Button background */
+  --theme-button-text: #ffffff; /* Button text color */
+  --theme-card-bg: #ffcdd2; /* Lighter pink for card backgrounds */
+  --theme-border: #f8bbd0; /* Soft pink border for inputs and cards */
+  --theme-input-bg: #fff0f0; /* Matching soft pink for input fields */
+  --theme-input-text: #b5838d; /* Muted rose input text */
+  --theme-card-radius: 12px; /* Smoothly rounded corners for cards */
+  --theme-button-radius: 6px; /* Moderately rounded corners for buttons */
+  --theme-card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Gentle shadow for cards */
+  --theme-input-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.1); /* Subtle inner shadow for inputs */
+  --theme-transition: all 0.3s ease; /* Smooth transition for interactive elements */
+}
+
+/* Cool Mint Theme */
+[data-theme="cool-mint"] {
+  --theme-bg: #e0f2f1; /* Minty background */
+  --theme-text: #00695c; /* Deep teal text for contrast */
+  --theme-error: #ff0000;
+
+  --theme-accent: #26a69a; /* Refreshing teal accent */
+  --theme-accent-hover: #00897b; /* Darker teal for hover state */
+  --theme-button-bg: #26a69a; /* Button background */
+  --theme-button-text: #ffffff; /* Button text color */
+  --theme-card-bg: #b2dfdb; /* Lighter mint for card backgrounds */
+  --theme-border: #80cbc4; /* Crisp mint border for inputs and cards */
+  --theme-input-bg: #e0f2f1; /* Matching minty background for input fields */
+  --theme-input-text: #00695c; /* Deep teal input text */
+  --theme-card-radius: 10px; /* Elegantly rounded corners for cards */
+  --theme-button-radius: 5px; /* Slightly rounded corners for buttons */
+  --theme-card-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* Soft shadow for cards */
+  --theme-input-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* Inner shadow for inputs */
+  --theme-transition: all 0.3s ease; /* Smooth transition for interactive elements */
+}
+/* Cosmic Night Theme */
+[data-theme="cosmic-night"] {
+  --theme-bg: #1a1a2e; /* Deep space blue background */
+  --theme-text: #e5e5e5; /* Light grey text for contrast */
+  --theme-error: #ff0000;
+
+  --theme-accent: #e94560; /* Vibrant pink accent */
+  --theme-accent-hover: #da2f4d; /* Darker pink for hover states */
+  --theme-button-bg: #e94560; /* Button background */
+  --theme-button-text: #ffffff; /* Button text color */
+  --theme-card-bg: #0f3460; /* Dark navy card background */
+  --theme-border: #2c2c54; /* Dark border for inputs and cards */
+  --theme-input-bg: #0f3460; /* Input field background */
+  --theme-input-text: #e5e5e5; /* Input text color */
+  --theme-card-radius: 0.5rem; /* Card border radius */
+  --theme-button-radius: 0.25rem; /* Button border radius */
+  --theme-card-shadow: 0 4px 8px rgba(0, 0, 0, 0.25); /* Card shadow */
+  --theme-input-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2); /* Input field shadow */
+  --theme-transition: all 0.3s ease; /* Smooth transition for interactive elements */
+}
+
+/* Dark Nebula Theme */
+[data-theme="dark-nebula"] {
+  --theme-bg: #2d3436; /* Dark slate grey background */
+  --theme-text: #dde6e9; /* Off-white text for contrast */
+  --theme-error: #ff0000;
+
+  --theme-accent: #00b4d8; /* Bright cyan accent */
+  --theme-accent-hover: #0096c7; /* Darker cyan for hover states */
+  --theme-button-bg: #00b4d8; /* Button background */
+  --theme-button-text: #ffffff; /* Button text color */
+  --theme-card-bg: #222f3e; /* Dark blue card background */
+  --theme-border: #404b5a; /* Dark border for inputs and cards */
+  --theme-input-bg: #222f3e; /* Input field background */
+  --theme-input-text: #dde6e9; /* Input text color */
+  --theme-card-radius: 0.5rem; /* Card border radius */
+  --theme-button-radius: 0.25rem; /* Button border radius */
+  --theme-card-shadow: 0 4px 8px rgba(0, 0, 0, 0.25); /* Card shadow */
+  --theme-input-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2); /* Input field shadow */
+  --theme-transition: all 0.3s ease; /* Smooth transition for interactive elements */
+}
+
+/* Twilight Shade Theme */
+[data-theme="twilight-shade"] {
+  --theme-bg: #1b262c; /* Dark charcoal background */
+  --theme-text: #bbe1fa; /* Pale blue text for contrast */
+  --theme-error: #ff0000;
+
+  --theme-accent: #3282b8; /* Ocean blue accent */
+  --theme-accent-hover: #0f4c75; /* Deep blue for hover states */
+  --theme-button-bg: #3282b8; /* Button background */
+  --theme-button-text: #ffffff; /* Button text color */
+  --theme-card-bg: #1f4068; /* Twilight blue card background */
+  --theme-border: #345675; /* Twilight border for inputs and cards */
+  --theme-input-bg: #1f4068; /* Input field background */
+  --theme-input-text: #bbe1fa; /* Input text color */
+  --theme-card-radius: 0.5rem; /* Card border radius */
+  --theme-button-radius: 0.25rem; /* Button border radius */
+  --theme-card-shadow: 0 4px 8px rgba(0, 0, 0, 0.25); /* Card shadow */
+  --theme-input-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2); /* Input field shadow */
+  --theme-transition: all 0.3s ease; /* Smooth transition for interactive elements */
+}
+/* Cyberpunk Theme */
+[data-theme="cyberpunk"] {
+  --theme-bg: #0d0d0d; /* Very dark background for the base */
+  --theme-text: #39ff14; /* Neon green text for contrast */
+  --theme-error: #ff0000;
+
+  --theme-accent: #ff0090; /* Neon pink as the accent color */
+  --theme-accent-hover: #cc0070; /* Slightly darker pink for hover effects */
+  --theme-button-bg: #ff0090; /* Neon pink for button backgrounds */
+  --theme-button-text: #0d0d0d; /* Very dark text for buttons */
+  --theme-card-bg: #171717; /* Slightly lighter dark for card backgrounds */
+  --theme-border: #333333; /* Dark grey for borders */
+  --theme-input-bg: #171717; /* Slightly lighter dark for input fields */
+  --theme-input-text: #39ff14; /* Neon green text for inputs */
+  --theme-card-radius: 8px; /* Rounded corners for cards */
+  --theme-button-radius: 4px; /* Rounded corners for buttons */
+  --theme-card-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Stronger shadow for depth */
+  --theme-input-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2); /* Inner shadow for inputs */
+  --theme-transition: all 0.3s ease; /* Smooth transition for interactive elements */
+}
+
+/* Space Odyssey Theme */
+[data-theme="space-odyssey"] {
+  --theme-bg: #1a1a2e; /* Deep space blue background */
+  --theme-text: #e0e0f8; /* Starlight white text for contrast */
+  --theme-error: #ff0000;
+
+  --theme-accent: #e94560; /* Galaxy red accent color */
+  --theme-accent-hover: #b03048; /* Darker shade for hover states */
+  --theme-button-bg: #e94560; /* Galaxy red for buttons */
+  --theme-button-text: #1a1a2e; /* Deep space blue for button text */
+  --theme-card-bg: #16213e; /* Darker space blue for cards */
+  --theme-border: #0f3460; /* Nebula navy for borders */
+  --theme-input-bg: #16213e; /* Darker space blue for inputs */
+  --theme-input-text: #e0e0f8; /* Starlight white for input text */
+  --theme-card-radius: 10px; /* Smoothly rounded corners for cards */
+  --theme-button-radius: 6px; /* Slightly rounded corners for buttons */
+  --theme-card-shadow: 0 8px 16px rgba(0, 0, 0, 0.25); /* Deep shadow for cards */
+  --theme-input-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.2); /* Inner shadow for inputs */
+  --theme-transition: all 0.3s ease; /* Smooth transition for interactive elements */
+}
+
+/* Neon Night Theme */
+[data-theme="neon-night"] {
+  --theme-bg: #1f1f1f; /* Dark background for the base */
+  --theme-text: #00f5d4; /* Bright neon cyan text for contrast */
+  --theme-error: #ff0000;
+  --theme-accent: #7209b7; /* Vibrant neon purple as the accent color */
+  --theme-accent-hover: #560bad; /* Slightly darker purple for hover effects */
+  --theme-button-bg: #7209b7; /* Neon purple for button backgrounds */
+  --theme-button-text: #1f1f1f; /* Dark text for buttons */
+  --theme-card-bg: #292929; /* Slightly lighter dark for card backgrounds */
+  --theme-border: #3a3a3a; /* Dark grey for borders */
+  --theme-input-bg: #292929; /* Slightly lighter dark for input fields */
+  --theme-input-text: #00f5d4; /* Bright neon cyan text for inputs */
+  --theme-card-radius: 8px; /* Rounded corners for cards */
+  --theme-button-radius: 4px; /* Rounded corners for buttons */
+  --theme-card-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Stronger shadow for depth */
+  --theme-input-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2); /* Inner shadow for inputs */
+  --theme-transition: all 0.3s ease; /* Smooth transition for interactive elements */
+}

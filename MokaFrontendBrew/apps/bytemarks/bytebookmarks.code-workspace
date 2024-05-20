@@ -1,0 +1,23 @@
+{
+  "folders": [
+    {
+      "name": "Root",
+      "path": ".",
+    },
+    {
+      "name": "Web",
+      "path": "./web"
+    },
+    {
+      "name": "Shared",
+      "path": "./shared"
+    },
+    {
+      "name": "Extension",
+      "path": "./chrome-extension"
+    }
+  ],
+  "settings": {
+    "typescript.tsdk": "node_modules\\typescript\\lib"
+  },
+}

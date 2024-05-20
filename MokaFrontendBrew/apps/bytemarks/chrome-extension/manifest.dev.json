@@ -1,0 +1,6 @@
+{
+  "action": {
+    "default_icon": "public/assets/logos/favicon-browser.png",
+    "default_popup": "src/pages/popup/index.html"
+  }
+}
